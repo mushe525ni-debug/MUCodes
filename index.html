@@ -22,6 +22,13 @@
   .wrap{max-width:1180px;margin:0 auto;padding:0 20px}
   button{font-family:inherit;cursor:pointer}
   img{max-width:100%}
+
+  /* ===== MOBILE OVERFLOW FIX (CRITICAL) ===== */
+  html, body { overflow-x: hidden !important; max-width: 100vw; width: 100%; position: relative; }
+  .nav-left { display: flex; align-items: center; gap: 10px; min-width: 0; flex-shrink: 0; }
+  .nav-left .logo { min-width: 0; }
+  .nav-left .logo > div:last-child { min-width: 0; overflow: hidden; }
+
   .announcement-bar{background:linear-gradient(90deg,#db2777,#a855f7,#4f46e5);color:#fff;padding:9px 40px 9px 20px;text-align:center;font-size:.83rem;font-weight:600;position:relative;display:flex;align-items:center;justify-content:center;gap:10px;transition:.3s}
   .announcement-bar.hide{display:none}
   .announcement-bar a{color:#fff;text-decoration:underline;font-weight:800}
@@ -46,9 +53,9 @@
   @media (max-width:640px){.laptop{width:280px}.laptop-screen{padding:11px 13px}.terminal-body{font-size:10px}}
   @media (prefers-reduced-motion:reduce){.splash{display:none!important}.laptop{animation:none!important;transform:none!important;opacity:1!important}.cursor{animation:none!important}}
   header{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--surface) 92%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
-  .nav{display:flex;align-items:center;justify-content:space-between;height:64px;gap:14px}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:64px;gap:14px;min-width:0}
   .logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.05rem;letter-spacing:-.02em;text-decoration:none;color:var(--text);flex-shrink:0}
-  .logo-mark{width:36px;height:36px;border-radius:9px;background:linear-gradient(135deg,var(--primary),#8b5cf6);display:grid;place-items:center;color:#fff;font-size:.82rem;font-weight:800;box-shadow:0 4px 12px rgba(79,70,229,.35)}
+  .logo-mark{width:36px;height:36px;border-radius:9px;background:linear-gradient(135deg,var(--primary),#8b5cf6);display:grid;place-items:center;color:#fff;font-size:.82rem;font-weight:800;box-shadow:0 4px 12px rgba(79,70,229,.35);flex-shrink:0}
   .logo small{display:block;font-size:.66rem;font-weight:500;color:var(--muted)}
   .main-nav{display:flex;gap:2px;align-items:center;overflow-x:auto;scrollbar-width:none;flex:1;justify-content:center}
   .main-nav::-webkit-scrollbar{display:none}
@@ -56,19 +63,19 @@
   .main-nav a:hover{color:var(--primary);background:var(--surface-2)}
   .main-nav a.active{color:var(--primary);background:var(--primary-soft)}
   .nav-right{display:flex;align-items:center;gap:8px;flex-shrink:0}
-  .icon-btn{position:relative;width:40px;height:40px;border-radius:10px;border:1px solid var(--border);background:var(--surface);color:var(--text);font-size:1rem;display:grid;place-items:center;transition:.18s}
+  .icon-btn{position:relative;width:40px;height:40px;border-radius:10px;border:1px solid var(--border);background:var(--surface);color:var(--text);font-size:1rem;display:grid;place-items:center;transition:.18s;flex-shrink:0}
   .icon-btn:hover{background:var(--surface-2)}
   .icon-badge{position:absolute;top:-6px;right:-6px;min-width:18px;height:18px;padding:0 4px;border-radius:9px;background:var(--new);color:#fff;font-size:.66rem;font-weight:800;display:none;place-items:center;border:2px solid var(--surface)}
   .icon-badge.show{display:grid}
   .auth-btns{display:flex;gap:8px}
-  .btn-auth{padding:8px 14px;border-radius:9px;font-size:.82rem;font-weight:700;transition:.16s;border:1px solid transparent;text-decoration:none;display:inline-flex;align-items:center;gap:5px}
+  .btn-auth{padding:8px 14px;border-radius:9px;font-size:.82rem;font-weight:700;transition:.16s;border:1px solid transparent;text-decoration:none;display:inline-flex;align-items:center;gap:5px;white-space:nowrap}
   .btn-login{background:transparent;color:var(--text);border-color:var(--border)}
   .btn-login:hover{border-color:var(--primary);color:var(--primary)}
   .btn-signup{background:var(--primary);color:#fff}
   .btn-signup:hover{background:var(--primary-dark)}
   .user-menu{position:relative}
   .user-btn{display:flex;align-items:center;gap:9px;padding:5px 12px 5px 5px;border-radius:100px;border:1px solid var(--border);background:var(--surface);transition:.16s;color:var(--text)}
-  .user-avatar{width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,var(--primary),#a855f7);display:grid;place-items:center;color:#fff;font-weight:800;font-size:.8rem}
+  .user-avatar{width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,var(--primary),#a855f7);display:grid;place-items:center;color:#fff;font-weight:800;font-size:.8rem;flex-shrink:0}
   .user-name{font-size:.84rem;font-weight:700;max-width:90px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
   .user-drop{position:absolute;top:calc(100% + 8px);right:0;min-width:230px;background:var(--surface);border:1px solid var(--border);border-radius:12px;box-shadow:var(--shadow-lg);padding:6px;opacity:0;visibility:hidden;transform:translateY(-4px);transition:.18s;z-index:60}
   .user-drop.open{opacity:1;visibility:visible;transform:translateY(0)}
@@ -80,10 +87,12 @@
   .drop-item.danger{color:var(--danger)}
   .drop-item.danger:hover{background:var(--danger-soft)}
   .drop-item .ico{font-size:1rem}
-  .mobile-toggle{display:none;width:40px;height:40px;border-radius:10px;border:1px solid var(--border);background:var(--surface);color:var(--text);font-size:1.2rem;place-items:center}
-  .mobile-menu-overlay{position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:100;opacity:0;visibility:hidden;transition:.25s}
+  .mobile-toggle{display:none;width:38px;height:38px;border-radius:10px;border:1px solid var(--border);background:var(--surface);color:var(--text);font-size:1.15rem;place-items:center;flex-shrink:0;cursor:pointer}
+
+  /* MOBILE MENU — SLIDES FROM LEFT */
+  .mobile-menu-overlay{position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:100;opacity:0;visibility:hidden;transition:.25s;overflow:hidden}
   .mobile-menu-overlay.open{opacity:1;visibility:visible}
-  .mobile-menu-inner{position:absolute;top:0;right:0;width:85%;max-width:340px;height:100%;background:var(--surface);padding:22px;overflow-y:auto;transform:translateX(100%);transition:.3s cubic-bezier(.2,.9,.3,1);display:flex;flex-direction:column;gap:6px;box-shadow:-10px 0 40px rgba(0,0,0,.2)}
+  .mobile-menu-inner{position:absolute;top:0;left:0;width:82%;max-width:320px;height:100%;background:var(--surface);padding:22px;overflow-y:auto;transform:translateX(-100%);transition:.3s cubic-bezier(.2,.9,.3,1);display:flex;flex-direction:column;gap:6px;box-shadow:10px 0 40px rgba(0,0,0,.2)}
   .mobile-menu-overlay.open .mobile-menu-inner{transform:translateX(0)}
   .mobile-menu-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid var(--border)}
   .mobile-menu-head h3{font-size:1.05rem;font-weight:800}
@@ -489,8 +498,48 @@
   .nf-wrap p{color:var(--muted);font-size:.94rem;margin-bottom:22px;max-width:420px;margin-left:auto;margin-right:auto}
   .nf-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
   .nf-actions .btn{flex:0 0 auto;padding:11px 20px}
-  @media (max-width:1024px){.main-nav{display:none}.mobile-toggle{display:grid}.foot-grid{grid-template-columns:1fr 1fr}.dash-grid{grid-template-columns:1fr}.contact-grid{grid-template-columns:1fr}}
-  @media (max-width:640px){.hero{padding:30px 0 18px}.stats{gap:18px}.filter-label{min-width:100%}.grid,.syllabus-grid,.notes-grid,.test-grid{grid-template-columns:1fr}.modal-meta{grid-template-columns:1fr}.toast-wrap{left:16px;right:16px;align-items:stretch}.toast{max-width:none}.syllabus-head .sh-stats,.dash-stats,.admin-head .ah-stats{margin-left:0;width:100%}.user-name{display:none}.auth-btns .btn-login{display:none}.foot-grid{grid-template-columns:1fr}.pdf-frame-wrap iframe{height:360px}.study-timer{left:16px;right:16px;width:auto;bottom:78px}.float-group{bottom:16px;right:16px}.float-btn{width:46px;height:46px;font-size:1.2rem}.notice-item{flex-wrap:wrap}.notice-item .n-date{font-size:.66rem}}
+
+  @media (max-width:1024px){
+    .main-nav{display:none}
+    .mobile-toggle{display:grid}
+    .foot-grid{grid-template-columns:1fr 1fr}
+    .dash-grid{grid-template-columns:1fr}
+    .contact-grid{grid-template-columns:1fr}
+    .nav{gap:8px}
+    .logo small{display:none}
+    .icon-btn{width:36px;height:36px;font-size:.9rem}
+    .btn-auth{padding:7px 12px;font-size:.78rem}
+  }
+  @media (max-width:640px){
+    .hero{padding:30px 0 18px}
+    .stats{gap:18px}
+    .filter-label{min-width:100%}
+    .grid,.syllabus-grid,.notes-grid,.test-grid{grid-template-columns:1fr}
+    .modal-meta{grid-template-columns:1fr}
+    .toast-wrap{left:16px;right:16px;align-items:stretch}
+    .toast{max-width:none}
+    .syllabus-head .sh-stats,.dash-stats,.admin-head .ah-stats{margin-left:0;width:100%}
+    .user-name{display:none}
+    .auth-btns .btn-login{display:none}
+    .foot-grid{grid-template-columns:1fr}
+    .pdf-frame-wrap iframe{height:360px}
+    .study-timer{left:16px;right:16px;width:auto;bottom:78px}
+    .float-group{bottom:16px;right:16px}
+    .float-btn{width:46px;height:46px;font-size:1.2rem}
+    .notice-item{flex-wrap:wrap}
+    .notice-item .n-date{font-size:.66rem}
+  }
+  @media (max-width:480px){
+    .wrap{padding:0 14px}
+    .nav{gap:6px}
+    .nav-left{gap:8px}
+    .nav-right{gap:5px}
+    .logo{font-size:.92rem}
+    .logo-mark{width:32px;height:32px;font-size:.75rem}
+    .icon-btn{width:34px;height:34px;font-size:.85rem}
+    .btn-signup{padding:7px 10px;font-size:.74rem}
+    .mobile-toggle{width:34px;height:34px;font-size:1rem}
+  }
   @media print{header,footer,.float-group,.study-timer,.announcement-bar,.breadcrumb,.mobile-menu-overlay,.ad-slot,.toast-wrap,.modal-actions,#bookmarkBtn,#themeBtn{display:none!important}.modal-overlay{position:static;background:none;padding:0;display:block!important}.modal{box-shadow:none;border:none;max-width:100%}body{background:#fff;color:#000}}
 </style>
 </head>
@@ -520,7 +569,10 @@
 
 <header>
   <div class="wrap nav">
-    <a href="#/" class="logo" data-link><div class="logo-mark">M</div><div>MUCodes<small>Your Ultimate BCA Companion</small></div></a>
+    <div class="nav-left">
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">☰</button>
+      <a href="#/" class="logo" data-link><div class="logo-mark">M</div><div>MUCodes<small>Your Ultimate BCA Companion</small></div></a>
+    </div>
     <nav class="main-nav" id="mainNav">
       <a href="#/" data-link data-route="home">🏠 Home</a>
       <a href="#/papers" data-link data-route="papers">📄 Papers</a>
@@ -544,7 +596,6 @@
           <button class="drop-item danger" id="dropLogout"><span class="ico">↩</span> Log out</button>
         </div>
       </div>
-      <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">☰</button>
     </div>
   </div>
 </header>
@@ -590,24 +641,20 @@
       </div>
     </div>
   </section>
-
   <div class="wrap">
     <div class="notice-section">
       <div class="notice-head"><div class="bell">🔔</div><h3>Latest Notices</h3><span class="live-badge">Live</span></div>
       <div class="notice-list" id="noticeList"></div>
     </div>
-
     <div class="result-banner">
       <div class="rb-icon">🎓</div>
       <div><h3>MJPRU BCA Result 2025</h3><p>Direct link to official MJPRU result portal — check your result now</p></div>
       <a class="rb-cta" href="https://mjpru.ac.in" target="_blank" rel="noopener">Check Result →</a>
     </div>
-
     <div class="recent-section" id="recentSection" style="display:none">
       <div class="sec-head"><h2>🕐 Recently Viewed</h2><a onclick="clearRecent()">Clear</a></div>
       <div class="recent-row" id="recentRow"></div>
     </div>
-
     <div class="quick-actions">
       <a class="qa-card" href="#/papers" data-link><div class="qa-icon" style="background:var(--primary-soft);color:var(--primary)">📄</div><div><h4>Question Papers</h4><p>Solved &amp; unsolved</p></div></a>
       <a class="qa-card" href="#/pyq" data-link><div class="qa-icon" style="background:var(--pyq-soft);color:var(--pyq)">📅</div><div><h4>Previous Year Qs</h4><p>Year-wise 2022–2025</p></div></a>
@@ -615,15 +662,11 @@
       <a class="qa-card" href="#/notes" data-link><div class="qa-icon" style="background:var(--notes-soft);color:var(--notes)">📝</div><div><h4>Notes</h4><p>Study material</p></div></a>
       <a class="qa-card" href="#/mock-tests" data-link><div class="qa-icon" style="background:var(--tests-soft);color:var(--tests)">🎯</div><div><h4>Mock Tests</h4><p>Practice online</p></div></a>
     </div>
-
     <div class="ad-slot"><span class="ad-label">Ad</span><div class="ad-text"><b>Your ad could be here</b><span>Reach 10,000+ MJPRU BCA students every month</span></div><button class="ad-cta">Advertise</button></div>
-
     <div class="sec-head"><h2>🆕 Latest Papers <span class="tag" style="background:var(--new-soft);color:var(--new)">New</span></h2><a href="#/papers" data-link>View all →</a></div>
     <div class="grid" id="latestGrid"></div>
-
     <div class="sec-head"><h2>🔥 Popular Subjects</h2><a href="#/papers" data-link>See all →</a></div>
     <div id="popularSubjects" style="display:flex;gap:9px;overflow-x:auto;padding-bottom:8px"></div>
-
     <div class="sec-head"><h2>🔥 Trending This Week</h2><span style="font-size:.7rem;font-weight:700;color:var(--new);background:var(--new-soft);padding:3px 9px;border-radius:6px;text-transform:uppercase">Most viewed</span></div>
     <div id="trendingRowHome" style="display:flex;gap:12px;overflow-x:auto;padding-bottom:12px"></div>
   </div>
@@ -730,7 +773,7 @@
     <div class="syllabus-head" style="background:linear-gradient(135deg,var(--notes-soft),var(--primary-soft))">
       <div class="sh-icon" style="background:var(--notes)">📝</div>
       <div><h2>Study Notes &amp; Material</h2><p>Handwritten notes, formula sheets &amp; reference material</p></div>
-      <div class="sh-stats"><div class="sh-stat"><b id="notesCount">12</b><span>Note Sets</span></div><div class="sh-stat"><b>6</b><span>Semesters</span></div></div>
+      <div class="sh-stats"><div class="sh-stat"><b id="notesCount">21</b><span>Note Sets</span></div><div class="sh-stat"><b>6</b><span>Semesters</span></div></div>
     </div>
     <div class="notes-grid" id="notesGrid"></div>
   </div>
@@ -758,7 +801,7 @@
     <div class="syllabus-head" style="background:linear-gradient(135deg,var(--tests-soft),var(--primary-soft))">
       <div class="sh-icon" style="background:var(--tests)">🎯</div>
       <div><h2>Mock Tests</h2><p>Practice with timed tests (2024-25 syllabus)</p></div>
-      <div class="sh-stats"><div class="sh-stat"><b id="testsCount">12</b><span>Tests</span></div><div class="sh-stat"><b>MCQ</b><span>Format</span></div></div>
+      <div class="sh-stats"><div class="sh-stat"><b id="testsCount">18</b><span>Tests</span></div><div class="sh-stat"><b>MCQ</b><span>Format</span></div></div>
     </div>
     <div class="test-grid" id="testGrid"></div>
   </div>
@@ -850,7 +893,6 @@
       <div class="feature-box"><div class="fb-icon">🎯</div><h4>Mock Tests</h4><p>Timed MCQ practice.</p></div>
     </div>
     <h2>Contributors</h2>
-    <p>Special thanks to our contributors:</p>
     <ul><li><strong>Aarav S.</strong> — Sem 1 &amp; 2 papers</li><li><strong>Priya M.</strong> — Java &amp; DBMS notes</li><li><strong>Rahul K.</strong> — Mock tests</li><li><strong>Anjali V.</strong> — Syllabus compilation</li></ul>
     <p>Want to contribute? <a href="#/contact" data-link>Contact us</a>.</p>
   </div></div>
@@ -894,12 +936,9 @@
     <p>MUCodes works without collecting personal data. No analytics trackers, no ad cookies.</p>
     <p>If you create an account, we store locally in your browser:</p>
     <ul><li>Name and email</li><li>Hashed password</li><li>Bookmarks, history, ratings, syllabus progress</li></ul>
-    <h2>2. How We Use It</h2>
-    <p>Only to personalize your experience. Nothing is shared or sold.</p>
-    <h2>3. Data Storage</h2>
-    <p>Everything is local (localStorage). Clearing browser data will permanently delete your account.</p>
-    <h2>4. Contact</h2>
-    <p>Questions? <a href="#/contact" data-link>Contact us</a> or email <strong>mucodes.official@gmail.com</strong>.</p>
+    <h2>2. How We Use It</h2><p>Only to personalize your experience. Nothing is shared or sold.</p>
+    <h2>3. Data Storage</h2><p>Everything is local (localStorage). Clearing browser data will permanently delete your account.</p>
+    <h2>4. Contact</h2><p>Questions? <a href="#/contact" data-link>Contact us</a> or email <strong>mucodes.official@gmail.com</strong>.</p>
   </div></div>
 </div>
 
@@ -1009,12 +1048,8 @@
 </footer>
 
 <script>
-// ═══════════════════════════════════════════════════════════════
-// 1. PAPERS DATA (NEW SYLLABUS 2024-25)
-// Format: [sem, subject, year, type, size]
-// ═══════════════════════════════════════════════════════════════
+// ========== DATA ==========
 const raw=[
-// ══ SEM 1 ══
 [1,"Computer Fundamentals and PC Software",2025,"solved","1.6 MB"],[1,"Computer Fundamentals and PC Software",2025,"unsolved","1.3 MB"],[1,"Computer Fundamentals and PC Software",2024,"solved","1.5 MB"],[1,"Computer Fundamentals and PC Software",2024,"unsolved","1.2 MB"],[1,"Computer Fundamentals and PC Software",2023,"solved","1.4 MB"],[1,"Computer Fundamentals and PC Software",2023,"unsolved","1.1 MB"],[1,"Computer Fundamentals and PC Software",2022,"solved","1.3 MB"],[1,"Computer Fundamentals and PC Software",2022,"unsolved","1.0 MB"],
 [1,"Programming with C",2025,"solved","1.7 MB"],[1,"Programming with C",2025,"unsolved","1.4 MB"],[1,"Programming with C",2024,"solved","1.6 MB"],[1,"Programming with C",2024,"unsolved","1.3 MB"],[1,"Programming with C",2023,"solved","1.5 MB"],[1,"Programming with C",2023,"unsolved","1.2 MB"],[1,"Programming with C",2022,"solved","1.4 MB"],[1,"Programming with C",2022,"unsolved","1.1 MB"],
 [1,"Basic Mathematics",2025,"solved","1.3 MB"],[1,"Basic Mathematics",2025,"unsolved","1.1 MB"],[1,"Basic Mathematics",2024,"solved","1.2 MB"],[1,"Basic Mathematics",2024,"unsolved","1.0 MB"],[1,"Basic Mathematics",2023,"solved","1.1 MB"],[1,"Basic Mathematics",2023,"unsolved","0.9 MB"],[1,"Basic Mathematics",2022,"solved","1.0 MB"],[1,"Basic Mathematics",2022,"unsolved","0.9 MB"],
@@ -1022,8 +1057,6 @@ const raw=[
 [1,"Principle of Management",2025,"solved","1.5 MB"],[1,"Principle of Management",2025,"unsolved","1.3 MB"],[1,"Principle of Management",2024,"solved","1.4 MB"],[1,"Principle of Management",2024,"unsolved","1.2 MB"],[1,"Principle of Management",2023,"solved","1.3 MB"],[1,"Principle of Management",2023,"unsolved","1.1 MB"],[1,"Principle of Management",2022,"solved","1.2 MB"],[1,"Principle of Management",2022,"unsolved","1.0 MB"],
 [1,"LAB: PC Software",2025,"solved","0.9 MB"],[1,"LAB: PC Software",2025,"unsolved","0.8 MB"],[1,"LAB: PC Software",2024,"solved","0.9 MB"],[1,"LAB: PC Software",2024,"unsolved","0.7 MB"],[1,"LAB: PC Software",2023,"solved","0.8 MB"],[1,"LAB: PC Software",2023,"unsolved","0.7 MB"],
 [1,"LAB: C Programming",2025,"solved","1.1 MB"],[1,"LAB: C Programming",2025,"unsolved","0.9 MB"],[1,"LAB: C Programming",2024,"solved","1.0 MB"],[1,"LAB: C Programming",2024,"unsolved","0.9 MB"],[1,"LAB: C Programming",2023,"solved","1.0 MB"],[1,"LAB: C Programming",2023,"unsolved","0.8 MB"],
-
-// ══ SEM 2 ══
 [2,"Data Structures using C",2025,"solved","1.8 MB"],[2,"Data Structures using C",2025,"unsolved","1.5 MB"],[2,"Data Structures using C",2024,"solved","1.7 MB"],[2,"Data Structures using C",2024,"unsolved","1.4 MB"],[2,"Data Structures using C",2023,"solved","1.6 MB"],[2,"Data Structures using C",2023,"unsolved","1.3 MB"],[2,"Data Structures using C",2022,"solved","1.5 MB"],[2,"Data Structures using C",2022,"unsolved","1.3 MB"],
 [2,"Introduction to Database System",2025,"solved","1.7 MB"],[2,"Introduction to Database System",2025,"unsolved","1.4 MB"],[2,"Introduction to Database System",2024,"solved","1.6 MB"],[2,"Introduction to Database System",2024,"unsolved","1.3 MB"],[2,"Introduction to Database System",2023,"solved","1.5 MB"],[2,"Introduction to Database System",2023,"unsolved","1.2 MB"],[2,"Introduction to Database System",2022,"solved","1.4 MB"],[2,"Introduction to Database System",2022,"unsolved","1.2 MB"],
 [2,"Elective Paper E1",2025,"solved","1.4 MB"],[2,"Elective Paper E1",2025,"unsolved","1.2 MB"],[2,"Elective Paper E1",2024,"solved","1.3 MB"],[2,"Elective Paper E1",2024,"unsolved","1.1 MB"],[2,"Elective Paper E1",2023,"solved","1.2 MB"],[2,"Elective Paper E1",2023,"unsolved","1.1 MB"],
@@ -1031,8 +1064,6 @@ const raw=[
 [2,"Digital Electronics",2025,"solved","1.6 MB"],[2,"Digital Electronics",2025,"unsolved","1.3 MB"],[2,"Digital Electronics",2024,"solved","1.5 MB"],[2,"Digital Electronics",2024,"unsolved","1.2 MB"],[2,"Digital Electronics",2023,"solved","1.4 MB"],[2,"Digital Electronics",2023,"unsolved","1.1 MB"],[2,"Digital Electronics",2022,"solved","1.3 MB"],[2,"Digital Electronics",2022,"unsolved","1.1 MB"],
 [2,"LAB: Data Structure",2025,"solved","1.1 MB"],[2,"LAB: Data Structure",2025,"unsolved","0.9 MB"],[2,"LAB: Data Structure",2024,"solved","1.0 MB"],[2,"LAB: Data Structure",2024,"unsolved","0.9 MB"],[2,"LAB: Data Structure",2023,"solved","1.0 MB"],[2,"LAB: Data Structure",2023,"unsolved","0.8 MB"],
 [2,"LAB: RDBMS",2025,"solved","1.2 MB"],[2,"LAB: RDBMS",2025,"unsolved","1.0 MB"],[2,"LAB: RDBMS",2024,"solved","1.1 MB"],[2,"LAB: RDBMS",2024,"unsolved","0.9 MB"],[2,"LAB: RDBMS",2023,"solved","1.0 MB"],[2,"LAB: RDBMS",2023,"unsolved","0.9 MB"],
-
-// ══ SEM 3 ══
 [3,"Object Oriented Programming using JAVA",2025,"solved","1.8 MB"],[3,"Object Oriented Programming using JAVA",2025,"unsolved","1.5 MB"],[3,"Object Oriented Programming using JAVA",2024,"solved","1.7 MB"],[3,"Object Oriented Programming using JAVA",2024,"unsolved","1.4 MB"],[3,"Object Oriented Programming using JAVA",2023,"solved","1.6 MB"],[3,"Object Oriented Programming using JAVA",2023,"unsolved","1.3 MB"],[3,"Object Oriented Programming using JAVA",2022,"solved","1.5 MB"],[3,"Object Oriented Programming using JAVA",2022,"unsolved","1.3 MB"],
 [3,"Numerical Analysis and Statistical Techniques",2025,"solved","1.5 MB"],[3,"Numerical Analysis and Statistical Techniques",2025,"unsolved","1.3 MB"],[3,"Numerical Analysis and Statistical Techniques",2024,"solved","1.4 MB"],[3,"Numerical Analysis and Statistical Techniques",2024,"unsolved","1.2 MB"],[3,"Numerical Analysis and Statistical Techniques",2023,"solved","1.3 MB"],[3,"Numerical Analysis and Statistical Techniques",2023,"unsolved","1.1 MB"],[3,"Numerical Analysis and Statistical Techniques",2022,"solved","1.2 MB"],[3,"Numerical Analysis and Statistical Techniques",2022,"unsolved","1.0 MB"],
 [3,"Elective Paper E2",2025,"solved","1.4 MB"],[3,"Elective Paper E2",2025,"unsolved","1.2 MB"],[3,"Elective Paper E2",2024,"solved","1.3 MB"],[3,"Elective Paper E2",2024,"unsolved","1.1 MB"],[3,"Elective Paper E2",2023,"solved","1.2 MB"],[3,"Elective Paper E2",2023,"unsolved","1.1 MB"],
@@ -1040,8 +1071,6 @@ const raw=[
 [3,"Computer Organization and Architecture",2025,"solved","1.6 MB"],[3,"Computer Organization and Architecture",2025,"unsolved","1.3 MB"],[3,"Computer Organization and Architecture",2024,"solved","1.5 MB"],[3,"Computer Organization and Architecture",2024,"unsolved","1.2 MB"],[3,"Computer Organization and Architecture",2023,"solved","1.4 MB"],[3,"Computer Organization and Architecture",2023,"unsolved","1.2 MB"],[3,"Computer Organization and Architecture",2022,"solved","1.3 MB"],[3,"Computer Organization and Architecture",2022,"unsolved","1.1 MB"],
 [3,"LAB: JAVA Programming",2025,"solved","1.3 MB"],[3,"LAB: JAVA Programming",2025,"unsolved","1.1 MB"],[3,"LAB: JAVA Programming",2024,"solved","1.2 MB"],[3,"LAB: JAVA Programming",2024,"unsolved","1.0 MB"],[3,"LAB: JAVA Programming",2023,"solved","1.1 MB"],[3,"LAB: JAVA Programming",2023,"unsolved","1.0 MB"],
 [3,"LAB: NAST",2025,"solved","1.1 MB"],[3,"LAB: NAST",2025,"unsolved","0.9 MB"],[3,"LAB: NAST",2024,"solved","1.0 MB"],[3,"LAB: NAST",2024,"unsolved","0.9 MB"],[3,"LAB: NAST",2023,"solved","1.0 MB"],[3,"LAB: NAST",2023,"unsolved","0.8 MB"],
-
-// ══ SEM 4 ══
 [4,"Programming in Python",2025,"solved","1.8 MB"],[4,"Programming in Python",2025,"unsolved","1.5 MB"],[4,"Programming in Python",2024,"solved","1.7 MB"],[4,"Programming in Python",2024,"unsolved","1.4 MB"],[4,"Programming in Python",2023,"solved","1.6 MB"],[4,"Programming in Python",2023,"unsolved","1.3 MB"],[4,"Programming in Python",2022,"solved","1.5 MB"],[4,"Programming in Python",2022,"unsolved","1.3 MB"],
 [4,"Unix and Shell Programming",2025,"solved","1.6 MB"],[4,"Unix and Shell Programming",2025,"unsolved","1.3 MB"],[4,"Unix and Shell Programming",2024,"solved","1.5 MB"],[4,"Unix and Shell Programming",2024,"unsolved","1.2 MB"],[4,"Unix and Shell Programming",2023,"solved","1.4 MB"],[4,"Unix and Shell Programming",2023,"unsolved","1.2 MB"],[4,"Unix and Shell Programming",2022,"solved","1.3 MB"],[4,"Unix and Shell Programming",2022,"unsolved","1.1 MB"],
 [4,"Elective Paper E3",2025,"solved","1.4 MB"],[4,"Elective Paper E3",2025,"unsolved","1.2 MB"],[4,"Elective Paper E3",2024,"solved","1.3 MB"],[4,"Elective Paper E3",2024,"unsolved","1.1 MB"],[4,"Elective Paper E3",2023,"solved","1.2 MB"],[4,"Elective Paper E3",2023,"unsolved","1.1 MB"],
@@ -1049,8 +1078,6 @@ const raw=[
 [4,"Computer Networks",2025,"solved","1.7 MB"],[4,"Computer Networks",2025,"unsolved","1.4 MB"],[4,"Computer Networks",2024,"solved","1.6 MB"],[4,"Computer Networks",2024,"unsolved","1.3 MB"],[4,"Computer Networks",2023,"solved","1.5 MB"],[4,"Computer Networks",2023,"unsolved","1.2 MB"],[4,"Computer Networks",2022,"solved","1.4 MB"],[4,"Computer Networks",2022,"unsolved","1.2 MB"],
 [4,"LAB: Python Programming",2025,"solved","1.3 MB"],[4,"LAB: Python Programming",2025,"unsolved","1.1 MB"],[4,"LAB: Python Programming",2024,"solved","1.2 MB"],[4,"LAB: Python Programming",2024,"unsolved","1.0 MB"],[4,"LAB: Python Programming",2023,"solved","1.1 MB"],[4,"LAB: Python Programming",2023,"unsolved","1.0 MB"],
 [4,"LAB: Unix and Shell Programming",2025,"solved","1.2 MB"],[4,"LAB: Unix and Shell Programming",2025,"unsolved","1.0 MB"],[4,"LAB: Unix and Shell Programming",2024,"solved","1.1 MB"],[4,"LAB: Unix and Shell Programming",2024,"unsolved","0.9 MB"],[4,"LAB: Unix and Shell Programming",2023,"solved","1.0 MB"],[4,"LAB: Unix and Shell Programming",2023,"unsolved","0.9 MB"],
-
-// ══ SEM 5 ══
 [5,"Artificial Intelligence",2025,"solved","1.7 MB"],[5,"Artificial Intelligence",2025,"unsolved","1.4 MB"],[5,"Artificial Intelligence",2024,"solved","1.6 MB"],[5,"Artificial Intelligence",2024,"unsolved","1.3 MB"],[5,"Artificial Intelligence",2023,"solved","1.5 MB"],[5,"Artificial Intelligence",2023,"unsolved","1.2 MB"],[5,"Artificial Intelligence",2022,"solved","1.4 MB"],[5,"Artificial Intelligence",2022,"unsolved","1.2 MB"],
 [5,"Web Technologies",2025,"solved","1.7 MB"],[5,"Web Technologies",2025,"unsolved","1.4 MB"],[5,"Web Technologies",2024,"solved","1.6 MB"],[5,"Web Technologies",2024,"unsolved","1.3 MB"],[5,"Web Technologies",2023,"solved","1.5 MB"],[5,"Web Technologies",2023,"unsolved","1.2 MB"],[5,"Web Technologies",2022,"solved","1.4 MB"],[5,"Web Technologies",2022,"unsolved","1.2 MB"],
 [5,"Elective Paper E4",2025,"solved","1.4 MB"],[5,"Elective Paper E4",2025,"unsolved","1.2 MB"],[5,"Elective Paper E4",2024,"solved","1.3 MB"],[5,"Elective Paper E4",2024,"unsolved","1.1 MB"],[5,"Elective Paper E4",2023,"solved","1.2 MB"],[5,"Elective Paper E4",2023,"unsolved","1.1 MB"],
@@ -1058,8 +1085,6 @@ const raw=[
 [5,"LAB: Web Technologies",2025,"solved","1.3 MB"],[5,"LAB: Web Technologies",2025,"unsolved","1.1 MB"],[5,"LAB: Web Technologies",2024,"solved","1.2 MB"],[5,"LAB: Web Technologies",2024,"unsolved","1.0 MB"],[5,"LAB: Web Technologies",2023,"solved","1.1 MB"],[5,"LAB: Web Technologies",2023,"unsolved","1.0 MB"],
 [5,"LAB: Computer Graphics",2025,"solved","1.2 MB"],[5,"LAB: Computer Graphics",2025,"unsolved","1.0 MB"],[5,"LAB: Computer Graphics",2024,"solved","1.1 MB"],[5,"LAB: Computer Graphics",2024,"unsolved","0.9 MB"],[5,"LAB: Computer Graphics",2023,"solved","1.0 MB"],[5,"LAB: Computer Graphics",2023,"unsolved","0.9 MB"],
 [5,"Industrial Training",2025,"solved","1.0 MB"],[5,"Industrial Training",2025,"unsolved","0.8 MB"],[5,"Industrial Training",2024,"solved","1.0 MB"],[5,"Industrial Training",2024,"unsolved","0.8 MB"],
-
-// ══ SEM 6 ══
 [6,"Introduction to Data Science",2025,"solved","1.7 MB"],[6,"Introduction to Data Science",2025,"unsolved","1.4 MB"],[6,"Introduction to Data Science",2024,"solved","1.6 MB"],[6,"Introduction to Data Science",2024,"unsolved","1.3 MB"],[6,"Introduction to Data Science",2023,"solved","1.5 MB"],[6,"Introduction to Data Science",2023,"unsolved","1.2 MB"],[6,"Introduction to Data Science",2022,"solved","1.4 MB"],[6,"Introduction to Data Science",2022,"unsolved","1.2 MB"],
 [6,"Cloud Computing",2025,"solved","1.6 MB"],[6,"Cloud Computing",2025,"unsolved","1.3 MB"],[6,"Cloud Computing",2024,"solved","1.5 MB"],[6,"Cloud Computing",2024,"unsolved","1.2 MB"],[6,"Cloud Computing",2023,"solved","1.4 MB"],[6,"Cloud Computing",2023,"unsolved","1.2 MB"],[6,"Cloud Computing",2022,"solved","1.3 MB"],[6,"Cloud Computing",2022,"unsolved","1.1 MB"],
 [6,"Elective Paper E5",2025,"solved","1.4 MB"],[6,"Elective Paper E5",2025,"unsolved","1.2 MB"],[6,"Elective Paper E5",2024,"solved","1.3 MB"],[6,"Elective Paper E5",2024,"unsolved","1.1 MB"],[6,"Elective Paper E5",2023,"solved","1.2 MB"],[6,"Elective Paper E5",2023,"unsolved","1.1 MB"],
@@ -1068,283 +1093,69 @@ const raw=[
 [6,"Major Project",2025,"solved","1.5 MB"],[6,"Major Project",2025,"unsolved","1.3 MB"],[6,"Major Project",2024,"solved","1.4 MB"],[6,"Major Project",2024,"unsolved","1.2 MB"]
 ];
 
-// ═══════════════════════════════════════════════════════════════
-// 2. SYLLABUS DATA (NEW MJPRU 2024-25)
-// ═══════════════════════════════════════════════════════════════
-const syllabusData={
-1:[
-{code:"BCA-101N",subject:"Computer Fundamentals and PC Software",credits:4,icon:"💻",pdf:"#",type:"Theory",units:[
-{title:"Unit 1 — Introduction to Computers",topics:["Generations & classification of computers","Block diagram — CPU, memory, I/O","Number systems: binary, octal, hex","Hardware vs software; types of software"]},
-{title:"Unit 2 — Operating System Basics",topics:["Functions & types of OS","DOS & Windows basics","File & folder management","GUI vs CLI; Windows utilities"]},
-{title:"Unit 3 — Word Processing (MS Word)",topics:["Creating & formatting documents","Tables, images, headers & footers","Mail merge, macros, templates","Printing & document protection"]},
-{title:"Unit 4 — Spreadsheets (MS Excel)",topics:["Workbook & worksheet basics","Formulas & functions (SUM, IF, VLOOKUP)","Charts, sorting, filtering, pivot tables","Data validation & conditional formatting"]},
-{title:"Unit 5 — Presentations & Internet",topics:["MS PowerPoint — slides, transitions, animations","Internet basics, browsers, search engines","Email, cloud storage & collaboration","Computer security basics"]}
-]},
-{code:"BCA-103N",subject:"Programming with C",credits:4,icon:"⌨️",pdf:"#",type:"Theory",units:[
-{title:"Unit 1 — Introduction to C",topics:["History & features of C","Structure of a C program","Compilation & execution process","Character set, tokens, identifiers, keywords"]},
-{title:"Unit 2 — Operators & Control Statements",topics:["Arithmetic, relational, logical, bitwise operators","Operator precedence & associativity","if, if-else, nested if, switch","while, do-while, for loops; break & continue"]},
-{title:"Unit 3 — Functions & Arrays",topics:["Function definition, declaration, prototypes","Call by value vs call by reference","Recursion & storage classes","Arrays: 1D, 2D; string handling functions"]},
-{title:"Unit 4 — Pointers & Structures",topics:["Pointer declaration, arithmetic","Dynamic memory allocation","Structures, unions, typedef, enum","Nested structures; array of structures"]},
-{title:"Unit 5 — File Handling & Preprocessor",topics:["File concept: fopen, fclose, fread, fwrite","Text vs binary files; fseek, ftell, rewind","Preprocessor directives — #define, #include","Command line arguments; basic programs"]}
-]},
-{code:"BCA-105N",subject:"Basic Mathematics",credits:4,icon:"📐",pdf:"#",type:"Theory",units:[
-{title:"Unit 1 — Sets, Relations & Functions",topics:["Sets — operations, Venn diagrams","Relations — types, equivalence relations","Functions — types, composition, inverse","Cardinality & counting principles"]},
-{title:"Unit 2 — Matrices & Determinants",topics:["Types of matrices, algebra of matrices","Determinants & their properties","Adjoint & inverse of a matrix","Solution of linear equations"]},
-{title:"Unit 3 — Differential Calculus",topics:["Limits, continuity & differentiability","Differentiation rules (product, quotient, chain)","Maxima & minima; applications","Partial derivatives — basics"]},
-{title:"Unit 4 — Integral Calculus",topics:["Indefinite integrals & standard forms","Integration by substitution, by parts","Definite integrals & properties","Area under curves; applications"]},
-{title:"Unit 5 — Probability & Statistics",topics:["Probability — axioms, conditional, Bayes' theorem","Random variables, mean & variance","Binomial, Poisson & normal distributions","Measures of central tendency & dispersion"]}
-]},
-{code:"BCA-107N",subject:"Communicative English",credits:4,icon:"✍️",pdf:"#",type:"Theory",units:[
-{title:"Unit 1 — Basics of Communication",topics:["Process, elements & importance of communication","Types: verbal, non-verbal, formal, informal","Barriers to communication","7 C's of effective communication"]},
-{title:"Unit 2 — Listening & Speaking Skills",topics:["Active listening & techniques","Public speaking — preparation & delivery","Group discussions & interviews","Pronunciation, intonation & stress"]},
-{title:"Unit 3 — Reading & Writing Skills",topics:["Reading comprehension & skimming/scanning","Paragraph writing, essay writing, précis","Letters — formal, informal, business emails","Report writing & note making"]},
-{title:"Unit 4 — Grammar & Vocabulary",topics:["Parts of speech, tenses, articles, prepositions","Sentence structure & common errors","Synonyms, antonyms, idioms & phrases","One-word substitutions & word formation"]},
-{title:"Unit 5 — Professional Communication",topics:["Resume / CV & cover letter writing","Job interviews & workplace etiquette","Presentations & business meetings","Soft skills & personality development"]}
-]},
-{code:"BCA-109N",subject:"Principle of Management",credits:4,icon:"📊",pdf:"#",type:"Theory",units:[
-{title:"Unit 1 — Introduction to Management",topics:["Concept, nature, scope & importance","Management as science, art, profession","Levels of management & managerial skills","Evolution of management thought"]},
-{title:"Unit 2 — Planning & Decision Making",topics:["Planning: meaning, nature, process & types","Management by Objectives (MBO)","Decision making: process, types & techniques","Rationality in decision making"]},
-{title:"Unit 3 — Organizing",topics:["Organization structure & types","Departmentation — bases & advantages","Span of control, authority & responsibility","Centralization vs decentralization, delegation"]},
-{title:"Unit 4 — Staffing & Directing",topics:["Recruitment, selection & placement","Training & development methods","Motivation — Maslow, Herzberg, McGregor","Leadership styles & theories"]},
-{title:"Unit 5 — Controlling & Coordination",topics:["Control: process, types, techniques","Coordination — meaning, need & principles","Management of change & conflict","Recent trends in management"]}
-]},
-{code:"BCA-101P",subject:"LAB: PC Software",credits:2,icon:"🖥️",pdf:"#",type:"Practical",units:[
-{title:"Practical 1 — MS Word",topics:["Creating & formatting documents","Tables, images, headers, footers","Mail merge & templates","Printing & document protection"]},
-{title:"Practical 2 — MS Excel",topics:["Workbook & worksheet basics","Formulas: SUM, AVERAGE, IF, VLOOKUP","Charts & pivot tables","Data validation & formatting"]},
-{title:"Practical 3 — MS PowerPoint",topics:["Creating slides & layouts","Transitions & animations","Inserting multimedia","Slide show & printing"]}
-]},
-{code:"BCA-103P",subject:"LAB: C Programming",credits:2,icon:"⌨️",pdf:"#",type:"Practical",units:[
-{title:"Practical 1 — Basics",topics:["Simple input/output programs","Arithmetic operations","Conditional statements","Loops practice"]},
-{title:"Practical 2 — Arrays & Functions",topics:["Array operations","String handling","Function programs","Recursion examples"]},
-{title:"Practical 3 — Pointers & Files",topics:["Pointer programs","Dynamic memory","Structures & unions","File read/write operations"]}
-]}
-],
-2:[
-{code:"BCA-102N",subject:"Data Structures using C",credits:4,icon:"🌳",pdf:"#",type:"Theory",units:[
-{title:"Unit 1 — Introduction to Data Structures",topics:["Concept of data types, ADT","Linear & non-linear data structures","Algorithm analysis, Big-O notation","Arrays: 1D, 2D; address calculation"]},
-{title:"Unit 2 — Stacks & Queues",topics:["Stack — operations, array & linked implementation","Applications: expression conversion & evaluation","Queue — linear, circular, deque","Priority queue & applications"]},
-{title:"Unit 3 — Linked Lists",topics:["Singly linked list — insertion, deletion, traversal","Doubly linked list — operations","Circular linked list & applications","Comparison of arrays vs linked lists"]},
-{title:"Unit 4 — Trees",topics:["Tree terminology, binary tree properties","Traversals — inorder, preorder, postorder","Binary Search Tree (BST) operations","AVL trees, B-trees — basics"]},
-{title:"Unit 5 — Graphs & Sorting/Searching",topics:["Graph representation — adjacency matrix & list","Traversals — BFS & DFS","Sorting: bubble, insertion, selection, merge, quick","Searching: linear, binary; hashing"]}
-]},
-{code:"BCA-104N",subject:"Introduction to Database System",credits:4,icon:"🗄️",pdf:"#",type:"Theory",units:[
-{title:"Unit 1 — Introduction to DBMS",topics:["File systems vs DBMS; advantages","Three-tier architecture; data independence","Data models — hierarchical, network, relational","Database administrator & users"]},
-{title:"Unit 2 — Relational Model & SQL",topics:["Relations, keys — primary, foreign, candidate","Relational algebra operations","SQL: DDL, DML, DCL commands","Joins, subqueries, views, indexes"]},
-{title:"Unit 3 — ER Modeling & Normalization",topics:["Entity, attributes, relationships, ER diagrams","Specialization, generalization, aggregation","Functional dependencies","Normal forms — 1NF, 2NF, 3NF, BCNF"]},
-{title:"Unit 4 — Transactions & Concurrency",topics:["Transaction concept, ACID properties","States of a transaction","Concurrency control — locking, timestamp","Deadlock handling in databases"]},
-{title:"Unit 5 — Recovery & Indexing",topics:["Log-based recovery; checkpoints","Indexing — B-tree, B+ tree, hashing","Query optimization basics","Introduction to NoSQL databases"]}
-]},
-{code:"BCA-E1",subject:"Elective Paper E1",credits:4,icon:"🔀",pdf:"#",type:"Elective",units:[
-{title:"Option 1 — BCA-401E: Mathematics",topics:["Compulsory for those without Mathematics in 12th","Calculus & Integration","Linear Algebra & Matrices","Probability & Statistics"]},
-{title:"Option 2 — BCA-402E: Environment and Ecology",topics:["Ecosystems & Biodiversity","Pollution types & control","Environmental Laws & Policies","Sustainable Development"]},
-{title:"Option 3 — BCA-403E: Introduction to E-Governance",topics:["E-Governance concepts","Models & Frameworks","Applications in India","Challenges & Future"]}
-]},
-{code:"BCA-106N",subject:"Business Organization & Management",credits:4,icon:"💼",pdf:"#",type:"Theory",units:[
-{title:"Unit 1 — Business Organization",topics:["Forms of business organization","Sole proprietorship, partnership","Joint stock companies","Cooperative societies"]},
-{title:"Unit 2 — Management Principles",topics:["Nature & scope of management","Functions of management","Managerial skills & roles","Scientific management"]},
-{title:"Unit 3 — Organizational Behaviour",topics:["Individual behaviour & personality","Group dynamics & teamwork","Motivation & leadership","Organizational culture"]},
-{title:"Unit 4 — Marketing & Finance",topics:["Marketing mix (4P's)","Market research & segmentation","Financial management basics","Sources of business finance"]},
-{title:"Unit 5 — Business Environment",topics:["Economic environment","Social & cultural environment","Legal environment","Global business environment"]}
-]},
-{code:"BCA-108N",subject:"Digital Electronics",credits:4,icon:"🔌",pdf:"#",type:"Theory",units:[
-{title:"Unit 1 — Number Systems & Codes",topics:["Binary, octal, decimal, hex","Conversions & arithmetic","1's & 2's complement","BCD, ASCII, Gray code"]},
-{title:"Unit 2 — Logic Gates & Boolean Algebra",topics:["AND, OR, NOT, NAND, NOR, XOR, XNOR","Boolean laws & theorems","K-map simplification","SOP & POS forms"]},
-{title:"Unit 3 — Combinational Circuits",topics:["Half adder & full adder","Multiplexers & demultiplexers","Encoders & decoders","Comparators"]},
-{title:"Unit 4 — Sequential Circuits",topics:["Flip-flops — SR, JK, D, T","Registers & shift registers","Counters — synchronous, asynchronous","Timing diagrams"]},
-{title:"Unit 5 — Memory & Converters",topics:["RAM, ROM, PROM, EPROM","DAC & ADC","Semiconductor memories","Programmable Logic Devices"]}
-]},
-{code:"BCA-102P",subject:"LAB: Data Structure",credits:2,icon:"🌳",pdf:"#",type:"Practical",units:[
-{title:"Practical 1 — Stacks & Queues",topics:["Stack operations using array","Stack applications","Queue using array","Circular queue"]},
-{title:"Practical 2 — Linked Lists",topics:["Singly linked list operations","Doubly linked list","Circular linked list","Insertion, deletion, traversal"]},
-{title:"Practical 3 — Trees & Sorting",topics:["Binary tree traversals","BST operations","Bubble & selection sort","Linear & binary search"]}
-]},
-{code:"BCA-104P",subject:"LAB: RDBMS",credits:2,icon:"🗄️",pdf:"#",type:"Practical",units:[
-{title:"Practical 1 — SQL Basics",topics:["CREATE, INSERT, UPDATE, DELETE","SELECT with WHERE, ORDER BY","Aggregate functions","GROUP BY & HAVING"]},
-{title:"Practical 2 — Advanced SQL",topics:["Joins — inner, outer, self","Subqueries","Views & indexes","Stored procedures"]},
-{title:"Practical 3 — Database Design",topics:["ER diagram creation","Normalization exercises","Constraints & keys","Triggers & functions"]}
-]}
-],
-3:[
-{code:"BCA-201N",subject:"Object Oriented Programming using JAVA",credits:4,icon:"☕",pdf:"#",type:"Theory",units:[
-{title:"Unit 1 — Introduction to Java",topics:["History, features & JVM architecture","Structure of a Java program","Data types, variables, operators","Control statements & arrays"]},
-{title:"Unit 2 — Classes, Objects & Inheritance",topics:["Class, object, constructors","this, static, super keywords","Method overloading & overriding","Inheritance — types, abstract classes"]},
-{title:"Unit 3 — Packages, Interfaces & Exceptions",topics:["Packages — creation & importing","Interfaces & multiple inheritance","Exception handling — try, catch, finally","User-defined exceptions"]},
-{title:"Unit 4 — Multithreading & Applets",topics:["Thread lifecycle & creation","Thread synchronization","Applet lifecycle & basics","Graphics & event handling"]},
-{title:"Unit 5 — AWT, Swing & JDBC",topics:["AWT components & layout managers","Swing components & containers","Event handling — delegation model","JDBC — database connectivity"]}
-]},
-{code:"BCA-203N",subject:"Numerical Analysis and Statistical Techniques",credits:4,icon:"📈",pdf:"#",type:"Theory",units:[
-{title:"Unit 1 — Numerical Solutions of Equations",topics:["Bisection method","Newton-Raphson method","Secant method","Successive approximation"]},
-{title:"Unit 2 — Interpolation & Approximation",topics:["Finite differences","Newton's forward & backward interpolation","Lagrange interpolation","Curve fitting"]},
-{title:"Unit 3 — Numerical Integration & Differentiation",topics:["Trapezoidal rule","Simpson's 1/3 & 3/8 rules","Numerical differentiation","Error analysis"]},
-{title:"Unit 4 — Numerical Solution of ODEs",topics:["Euler's method","Modified Euler's method","Runge-Kutta methods","Milne's predictor-corrector"]},
-{title:"Unit 5 — Statistical Techniques",topics:["Measures of central tendency & dispersion","Correlation & regression","Probability distributions","Hypothesis testing basics"]}
-]},
-{code:"BCA-E2",subject:"Elective Paper E2",credits:4,icon:"🔀",pdf:"#",type:"Elective",units:[
-{title:"Option 1 — BCA-411E: Discrete Mathematics",topics:["Set theory & logic","Relations & functions","Graph theory","Algebraic structures & combinatorics"]},
-{title:"Option 2 — BCA-412E: Personality and Soft Skills Development",topics:["Self-awareness & personality","Communication & interpersonal skills","Time management & stress management","Interview & presentation skills"]},
-{title:"Option 3 — BCA-413E: Information System for Business",topics:["MIS concepts & types","System analysis & design","ERP & CRM","Decision support systems"]}
-]},
-{code:"BCA-205N",subject:"Operating System",credits:4,icon:"🖥️",pdf:"#",type:"Theory",units:[
-{title:"Unit 1 — Introduction to OS",topics:["Functions, objectives & types of OS","OS services & system calls","Kernel types — monolithic, micro","Batch, multiprogramming, time-sharing"]},
-{title:"Unit 2 — Process Management",topics:["Process concept, states & PCB","Scheduling — FCFS, SJF, RR, priority","Inter-process communication","Synchronization — semaphores, mutex"]},
-{title:"Unit 3 — Deadlocks & Memory Management",topics:["Deadlock — conditions & handling","Banker's algorithm","Paging, segmentation","Fragmentation — internal & external"]},
-{title:"Unit 4 — Virtual Memory & File Systems",topics:["Demand paging & page replacement","FIFO, LRU, Optimal algorithms","File concepts & access methods","File allocation methods"]},
-{title:"Unit 5 — I/O Systems & Disk Scheduling",topics:["I/O hardware & device drivers","Disk scheduling — FCFS, SSTF, SCAN","RAID levels","Protection & security basics"]}
-]},
-{code:"BCA-207N",subject:"Computer Organization and Architecture",credits:4,icon:"🔧",pdf:"#",type:"Theory",units:[
-{title:"Unit 1 — Basic Computer Organization",topics:["Von Neumann architecture","Instruction formats & addressing modes","Register transfer language","Bus structure"]},
-{title:"Unit 2 — CPU Organization",topics:["ALU design","Control unit — hardwired & microprogrammed","Instruction pipelining","RISC vs CISC architectures"]},
-{title:"Unit 3 — Memory Organization",topics:["Memory hierarchy","Cache memory — mapping techniques","Virtual memory","Associative memory"]},
-{title:"Unit 4 — I/O Organization",topics:["I/O interfaces","Data transfer — programmed, interrupt, DMA","I/O processors","Serial & parallel communication"]},
-{title:"Unit 5 — Multiprocessors & Pipelining",topics:["Parallel processing concepts","Pipeline hazards","Vector processing","Array processors"]}
-]},
-{code:"BCA-201P",subject:"LAB: JAVA Programming",credits:2,icon:"☕",pdf:"#",type:"Practical",units:[
-{title:"Practical 1 — Java Basics",topics:["Hello World & basic I/O","Control statements","Arrays & strings","Classes & objects"]},
-{title:"Practical 2 — OOP Concepts",topics:["Inheritance programs","Interfaces","Exception handling","Packages"]},
-{title:"Practical 3 — Advanced Java",topics:["Multithreading","AWT & Swing programs","Event handling","JDBC connectivity"]}
-]},
-{code:"BCA-203P",subject:"LAB: NAST",credits:2,icon:"📈",pdf:"#",type:"Practical",units:[
-{title:"Practical 1 — Numerical Methods",topics:["Root finding — Bisection, Newton-Raphson","Interpolation","Numerical integration","ODE solutions"]},
-{title:"Practical 2 — Statistics",topics:["Mean, median, mode","Standard deviation","Correlation & regression","Distribution fitting"]}
-]}
-],
-4:[
-{code:"BCA-202N",subject:"Programming in Python",credits:4,icon:"🐍",pdf:"#",type:"Theory",units:[
-{title:"Unit 1 — Introduction to Python",topics:["History, features & applications","Installation, IDEs & running scripts","Variables, data types, input/output","Operators & expressions"]},
-{title:"Unit 2 — Control Flow & Data Structures",topics:["if, elif, else; loops — for, while","Lists, tuples, sets, dictionaries","List comprehensions","String methods & formatting"]},
-{title:"Unit 3 — Functions, Modules & Files",topics:["Function definition, arguments","Lambda, map, filter, reduce","Modules & packages","File handling — reading, writing"]},
-{title:"Unit 4 — Object Oriented Python",topics:["Classes, objects, constructors","Inheritance & method resolution order","Polymorphism, encapsulation","Special methods & properties"]},
-{title:"Unit 5 — Libraries & Exception Handling",topics:["NumPy — arrays & operations","Pandas — Series, DataFrame","Matplotlib — basic plotting","Exception handling — try/except/finally"]}
-]},
-{code:"BCA-204N",subject:"Unix and Shell Programming",credits:4,icon:"🐧",pdf:"#",type:"Theory",units:[
-{title:"Unit 1 — Introduction to Unix",topics:["History & features of Unix","Unix architecture — kernel, shell","File system & types of files","Login & user management"]},
-{title:"Unit 2 — Unix Commands",topics:["File handling commands — ls, cp, mv, rm","Directory commands — mkdir, cd, pwd","File permissions — chmod, chown","Text processing — grep, sed, awk"]},
-{title:"Unit 3 — Shell Programming Basics",topics:["Shell types — Bourne, C, Korn","Variables & environment","Command line arguments","Input/output redirection & pipes"]},
-{title:"Unit 4 — Shell Scripting",topics:["Conditional statements — if, case","Loops — for, while, until","Functions in shell","Debugging shell scripts"]},
-{title:"Unit 5 — Process Management & Vi Editor",topics:["Process creation & control","ps, kill, jobs, fg, bg commands","Vi editor — modes & commands","Scheduling & cron jobs"]}
-]},
-{code:"BCA-E3",subject:"Elective Paper E3",credits:4,icon:"🔀",pdf:"#",type:"Elective",units:[
-{title:"Option 1 — BCA-421E: E-Commerce",topics:["E-Commerce concepts & models","B2B, B2C, C2C, C2B","Payment systems & security","E-Commerce applications"]},
-{title:"Option 2 — BCA-422E: IT Acts and Cyber Laws",topics:["IT Act 2000 & amendments","Cyber crimes & offences","Data protection laws","Intellectual property rights"]},
-{title:"Option 3 — BCA-423E: Software Engineering",topics:["SDLC & process models","Requirement engineering & SRS","Software design & testing","Project management & quality"]}
-]},
-{code:"BCA-206N",subject:"Accounting and Financial Management",credits:4,icon:"💰",pdf:"#",type:"Theory",units:[
-{title:"Unit 1 — Basic Accounting Concepts",topics:["Accounting principles & conventions","Double entry system","Journal, ledger, trial balance","Accounting equation"]},
-{title:"Unit 2 — Final Accounts",topics:["Trading account","Profit & loss account","Balance sheet","Adjustment entries"]},
-{title:"Unit 3 — Cost Accounting",topics:["Cost concepts & classification","Cost sheet preparation","Standard costing","Marginal costing"]},
-{title:"Unit 4 — Financial Management",topics:["Objectives of financial management","Capital budgeting techniques","Working capital management","Cost of capital"]},
-{title:"Unit 5 — Ratio Analysis & Funds Flow",topics:["Liquidity, profitability ratios","Activity & leverage ratios","Funds flow statement","Cash flow statement"]}
-]},
-{code:"BCA-208N",subject:"Computer Networks",credits:4,icon:"🌐",pdf:"#",type:"Theory",units:[
-{title:"Unit 1 — Introduction & Reference Models",topics:["Network goals, applications & types","Topologies — bus, star, ring, mesh","OSI reference model — 7 layers","TCP/IP model & comparison"]},
-{title:"Unit 2 — Physical & Data Link Layer",topics:["Transmission media — guided & unguided","Switching — circuit, packet, message","Error detection — parity, CRC, Hamming","Flow control & ARQ protocols"]},
-{title:"Unit 3 — Network Layer",topics:["IPv4 addressing & subnetting","Routing algorithms — distance vector, link state","Routing protocols — RIP, OSPF, BGP","IPv6 — features & comparison"]},
-{title:"Unit 4 — Transport Layer",topics:["Services & primitives","UDP — features & header format","TCP — connection & congestion control","TCP vs UDP"]},
-{title:"Unit 5 — Application Layer & Security",topics:["HTTP, FTP, SMTP, DNS, DHCP","WWW & email architecture","Cryptography — symmetric & asymmetric","Firewalls, SSL/TLS, VPN"]}
-]},
-{code:"BCA-202P",subject:"LAB: Python Programming",credits:2,icon:"🐍",pdf:"#",type:"Practical",units:[
-{title:"Practical 1 — Python Basics",topics:["Variables & data types","Conditionals & loops","Lists, tuples, dicts","String operations"]},
-{title:"Practical 2 — Functions & Files",topics:["Function programs","Lambda expressions","File read/write","Exception handling"]},
-{title:"Practical 3 — Libraries & OOP",topics:["NumPy & Pandas basics","Matplotlib plots","Class & object programs","Inheritance examples"]}
-]},
-{code:"BCA-204P",subject:"LAB: Unix and Shell Programming",credits:2,icon:"🐧",pdf:"#",type:"Practical",units:[
-{title:"Practical 1 — Unix Commands",topics:["File & directory commands","Permissions & ownership","Text processing — grep, sed, awk","Pipes & redirection"]},
-{title:"Practical 2 — Shell Scripts",topics:["Basic shell scripts","Conditionals & loops","Functions & arguments","Process management"]}
-]}
-],
-5:[
-{code:"BCA-301N",subject:"Artificial Intelligence",credits:4,icon:"🤖",pdf:"#",type:"Theory",units:[
-{title:"Unit 1 — Introduction to AI",topics:["Definition, history & goals of AI","Intelligent agents & environments","AI applications & trends","Ethics of AI"]},
-{title:"Unit 2 — Search Techniques",topics:["Uninformed search — BFS, DFS, UCS","Informed search — A*, greedy best-first","Hill climbing & simulated annealing","Adversarial search — minimax, alpha-beta"]},
-{title:"Unit 3 — Knowledge Representation",topics:["Propositional & predicate logic","Semantic networks & frames","Inference rules & resolution","Uncertainty — Bayesian networks"]},
-{title:"Unit 4 — Machine Learning Basics",topics:["Supervised vs unsupervised learning","Linear & logistic regression","Decision trees & random forests","Overfitting & regularization"]},
-{title:"Unit 5 — Expert Systems & NLP",topics:["Expert system architecture","Knowledge acquisition & inference engine","NLP — tokenization, POS tagging","Applications: chatbots, translation"]}
-]},
-{code:"BCA-303N",subject:"Web Technologies",credits:4,icon:"🌍",pdf:"#",type:"Theory",units:[
-{title:"Unit 1 — HTML & CSS",topics:["HTML5 structure, tags, forms, tables","Semantic elements & multimedia","CSS — selectors, box model, positioning","Responsive design & media queries"]},
-{title:"Unit 2 — JavaScript",topics:["Variables, data types, operators","Functions, arrays, objects","DOM manipulation & events","ES6+ features — let/const, arrow functions"]},
-{title:"Unit 3 — XML & Web Servers",topics:["XML syntax, DTD, schema","XSLT & XPath basics","Web servers — Apache, Nginx","Client-server architecture & HTTP"]},
-{title:"Unit 4 — PHP & Server-Side Scripting",topics:["PHP basics — syntax, variables","Forms handling, sessions, cookies","MySQL connectivity with PHP","File uploads & error handling"]},
-{title:"Unit 5 — Web Frameworks & Security",topics:["Introduction to React, Node.js","REST APIs & JSON","Web security — XSS, CSRF, SQL injection","HTTPS, authentication & authorization"]}
-]},
-{code:"BCA-E4",subject:"Elective Paper E4",credits:4,icon:"🔀",pdf:"#",type:"Elective",units:[
-{title:"Option 1 — BCA-431E: Introduction to Cyber Security",topics:["CIA triad & security basics","Malware & threats","Cryptography basics","Network security"]},
-{title:"Option 2 — BCA-432E: GUI Programming",topics:["GUI design principles","Event-driven programming","Windows/Java GUI","Widgets & layout managers"]},
-{title:"Option 3 — BCA-433E: Operation Research",topics:["Linear programming problems","Simplex method","Transportation & assignment","Queuing theory & game theory"]}
-]},
-{code:"BCA-305N",subject:"Computer Graphics and Animation",credits:4,icon:"🎨",pdf:"#",type:"Theory",units:[
-{title:"Unit 1 — Introduction to Graphics",topics:["Applications of computer graphics","Display devices — CRT, LCD, LED","Raster scan vs random scan","Graphics hardware & input devices"]},
-{title:"Unit 2 — Drawing Algorithms",topics:["Line drawing — DDA, Bresenham","Circle drawing — midpoint algorithm","Ellipse & polygon drawing","Filled area primitives"]},
-{title:"Unit 3 — 2D Transformations & Clipping",topics:["Translation, rotation, scaling, reflection, shear","Homogeneous coordinates & composite","Line clipping — Cohen-Sutherland","Polygon clipping — Sutherland-Hodgman"]},
-{title:"Unit 4 — 3D Graphics & Animation",topics:["3D transformations & matrices","Parallel & perspective projections","Bezier & B-spline curves","Animation techniques — keyframe, procedural"]},
-{title:"Unit 5 — Hidden Surface & Rendering",topics:["Z-buffer, painter's algorithm","Back-face detection","Shading — flat, Gouraud, Phong","Introduction to OpenGL"]}
-]},
-{code:"BCA-303P",subject:"LAB: Web Technologies",credits:2,icon:"🌍",pdf:"#",type:"Practical",units:[
-{title:"Practical 1 — HTML & CSS",topics:["Static web pages","Forms & tables","CSS styling & layouts","Responsive design"]},
-{title:"Practical 2 — JavaScript & PHP",topics:["JS DOM manipulation","Event handling","PHP forms & sessions","Database connectivity"]}
-]},
-{code:"BCA-305P",subject:"LAB: Computer Graphics",credits:2,icon:"🎨",pdf:"#",type:"Practical",units:[
-{title:"Practical 1 — Drawing Algorithms",topics:["DDA line drawing","Bresenham line & circle","Polygon drawing","Filling algorithms"]},
-{title:"Practical 2 — Transformations & Animation",topics:["2D transformations","3D transformations","Simple animations","OpenGL basics"]}
-]},
-{code:"BCA-307P",subject:"Industrial Training",credits:4,icon:"🏢",pdf:"#",type:"Internship",units:[
-{title:"Training Component",topics:["6 to 8 weeks industrial training during summer","Training certificate required from organization","Training report submission","Project work based on training"]}
-]}
-],
-6:[
-{code:"BCA-302N",subject:"Introduction to Data Science",credits:4,icon:"📊",pdf:"#",type:"Theory",units:[
-{title:"Unit 1 — Introduction to Data Science",topics:["Definition & applications","Data science lifecycle","Roles & skills","Tools & technologies"]},
-{title:"Unit 2 — Data Preprocessing",topics:["Data cleaning & integration","Transformation & reduction","Handling missing values","Outlier detection"]},
-{title:"Unit 3 — Exploratory Data Analysis",topics:["Descriptive statistics","Data visualization","Correlation & regression","Hypothesis testing"]},
-{title:"Unit 4 — Machine Learning for Data Science",topics:["Supervised learning — regression, classification","Unsupervised — clustering","Model evaluation metrics","Cross-validation"]},
-{title:"Unit 5 — Data Science Tools & Applications",topics:["Python libraries — NumPy, Pandas, Scikit-learn","R for data science","Big data & Hadoop","Real-world applications"]}
-]},
-{code:"BCA-304N",subject:"Cloud Computing",credits:4,icon:"☁️",pdf:"#",type:"Theory",units:[
-{title:"Unit 1 — Introduction to Cloud Computing",topics:["Evolution from grid to cloud","Essential characteristics (NIST)","Advantages & limitations","Cloud vs traditional IT"]},
-{title:"Unit 2 — Service & Deployment Models",topics:["IaaS, PaaS, SaaS","Public, private, hybrid, community clouds","Cloud service providers","SLA & pricing models"]},
-{title:"Unit 3 — Virtualization & Cloud Storage",topics:["Hypervisors — Type 1 & 2","VMs vs containers (Docker)","Cloud storage — object, block, file","Data redundancy & replication"]},
-{title:"Unit 4 — Cloud Platforms",topics:["AWS core services","Microsoft Azure & Google Cloud","Serverless computing","Cloud orchestration — Kubernetes"]},
-{title:"Unit 5 — Cloud Security & Applications",topics:["Security challenges in cloud","Identity & access management","Data privacy & compliance","Use cases — backup, big data, IoT"]}
-]},
-{code:"BCA-E5",subject:"Elective Paper E5",credits:4,icon:"🔀",pdf:"#",type:"Elective",units:[
-{title:"Option 1 — BCA-441E: Software Testing",topics:["Testing fundamentals","Testing levels & types","Test case design","Automation tools"]},
-{title:"Option 2 — BCA-442E: Advanced Web Developer Technologies",topics:["Advanced JavaScript frameworks","React / Angular","Backend APIs & microservices","Deployment & DevOps"]},
-{title:"Option 3 — BCA-443E: Blockchain Foundations",topics:["Blockchain basics & concepts","Cryptocurrency & Bitcoin","Smart contracts","Applications & use cases"]}
-]},
-{code:"BCA-306N",subject:"Internet of Things",credits:4,icon:"📡",pdf:"#",type:"Theory",units:[
-{title:"Unit 1 — Introduction to IoT",topics:["Definition, vision & evolution","IoT vs M2M vs WoT","Applications — smart home, city, health","Challenges & design considerations"]},
-{title:"Unit 2 — IoT Architecture & Sensors",topics:["5-layer IoT architecture","Sensors & actuators","Arduino & Raspberry Pi","Edge vs fog vs cloud computing"]},
-{title:"Unit 3 — IoT Protocols & Communication",topics:["MQTT, CoAP, AMQP","Wireless — BLE, Zigbee, LoRa","IPv6 & 6LoWPAN","RFID & NFC"]},
-{title:"Unit 4 — IoT Platforms & Cloud",topics:["AWS IoT, Azure IoT Hub","Data analytics for IoT","Time-series databases","Digital twins"]},
-{title:"Unit 5 — IoT Applications & Security",topics:["Smart cities & industrial IoT","Security challenges in IoT","Authentication & encryption","Privacy concerns & future trends"]}
-]},
-{code:"BCA-302P",subject:"LAB: Data Science",credits:2,icon:"📊",pdf:"#",type:"Practical",units:[
-{title:"Practical 1 — Data Analysis",topics:["NumPy arrays & operations","Pandas DataFrames","Data cleaning techniques","Exploratory analysis"]},
-{title:"Practical 2 — Visualization & ML",topics:["Matplotlib & Seaborn plots","Scikit-learn basics","Regression & classification","Model evaluation"]}
-]},
-{code:"BCA-308P",subject:"Major Project",credits:6,icon:"🎓",pdf:"#",type:"Project",units:[
-{title:"Project Components",topics:["Project domain selection & synopsis","System analysis & design","Implementation & coding","Testing, documentation & viva"]}
-]}
-]
-};
+const syllabusData={1:[
+{code:"BCA-101N",subject:"Computer Fundamentals and PC Software",credits:4,icon:"💻",pdf:"#",type:"Theory",units:[{title:"Unit 1 — Introduction to Computers",topics:["Generations & classification","Block diagram — CPU, memory, I/O","Number systems: binary, octal, hex","Hardware vs software; types of software"]},{title:"Unit 2 — Operating System Basics",topics:["Functions & types of OS","DOS & Windows basics","File & folder management","GUI vs CLI; Windows utilities"]},{title:"Unit 3 — Word Processing (MS Word)",topics:["Creating & formatting documents","Tables, images, headers & footers","Mail merge, macros, templates","Printing & document protection"]},{title:"Unit 4 — Spreadsheets (MS Excel)",topics:["Workbook & worksheet basics","Formulas: SUM, IF, VLOOKUP","Charts, sorting, filtering, pivot tables","Data validation & conditional formatting"]},{title:"Unit 5 — Presentations & Internet",topics:["MS PowerPoint — slides, transitions","Internet basics, browsers, search engines","Email, cloud storage & collaboration","Computer security basics"]}]},
+{code:"BCA-103N",subject:"Programming with C",credits:4,icon:"⌨️",pdf:"#",type:"Theory",units:[{title:"Unit 1 — Introduction to C",topics:["History & features of C","Structure of a C program","Compilation & execution process","Character set, tokens, identifiers, keywords"]},{title:"Unit 2 — Operators & Control Statements",topics:["Arithmetic, relational, logical, bitwise","Operator precedence & associativity","if, if-else, nested if, switch","while, do-while, for loops"]},{title:"Unit 3 — Functions & Arrays",topics:["Function definition, declaration","Call by value vs call by reference","Recursion & storage classes","Arrays: 1D, 2D; string handling"]},{title:"Unit 4 — Pointers & Structures",topics:["Pointer declaration & arithmetic","Dynamic memory allocation","Structures, unions, typedef, enum","Nested structures; array of structures"]},{title:"Unit 5 — File Handling & Preprocessor",topics:["File operations: fopen, fclose","Text vs binary files","Preprocessor directives","Command line arguments"]}]},
+{code:"BCA-105N",subject:"Basic Mathematics",credits:4,icon:"📐",pdf:"#",type:"Theory",units:[{title:"Unit 1 — Sets, Relations & Functions",topics:["Sets — operations, Venn diagrams","Relations — types, equivalence","Functions — types, composition","Cardinality & counting principles"]},{title:"Unit 2 — Matrices & Determinants",topics:["Types of matrices","Determinants & properties","Adjoint & inverse of a matrix","Solution of linear equations"]},{title:"Unit 3 — Differential Calculus",topics:["Limits, continuity & differentiability","Differentiation rules","Maxima & minima; applications","Partial derivatives — basics"]},{title:"Unit 4 — Integral Calculus",topics:["Indefinite integrals & standard forms","Integration by substitution, by parts","Definite integrals & properties","Area under curves; applications"]},{title:"Unit 5 — Probability & Statistics",topics:["Probability — axioms, conditional","Random variables, mean & variance","Binomial, Poisson & normal distributions","Measures of central tendency & dispersion"]}]},
+{code:"BCA-107N",subject:"Communicative English",credits:4,icon:"✍️",pdf:"#",type:"Theory",units:[{title:"Unit 1 — Basics of Communication",topics:["Process, elements & importance","Types: verbal, non-verbal","Barriers to communication","7 C's of effective communication"]},{title:"Unit 2 — Listening & Speaking",topics:["Active listening & techniques","Public speaking — preparation","Group discussions & interviews","Pronunciation, intonation & stress"]},{title:"Unit 3 — Reading & Writing",topics:["Reading comprehension & skimming","Paragraph writing, essay, précis","Letters — formal, informal, business","Report writing & note making"]},{title:"Unit 4 — Grammar & Vocabulary",topics:["Parts of speech, tenses, articles","Sentence structure & common errors","Synonyms, antonyms, idioms","One-word substitutions & word formation"]},{title:"Unit 5 — Professional Communication",topics:["Resume / CV & cover letter writing","Job interviews & workplace etiquette","Presentations & business meetings","Soft skills & personality development"]}]},
+{code:"BCA-109N",subject:"Principle of Management",credits:4,icon:"📊",pdf:"#",type:"Theory",units:[{title:"Unit 1 — Introduction to Management",topics:["Concept, nature, scope & importance","Management as science, art, profession","Levels of management & skills","Evolution of management thought"]},{title:"Unit 2 — Planning & Decision Making",topics:["Planning: meaning, nature, process","Management by Objectives (MBO)","Decision making: process, types","Rationality in decision making"]},{title:"Unit 3 — Organizing",topics:["Organization structure & types","Departmentation — bases & advantages","Span of control, authority & responsibility","Centralization vs decentralization"]},{title:"Unit 4 — Staffing & Directing",topics:["Recruitment, selection & placement","Training & development methods","Motivation — Maslow, Herzberg, McGregor","Leadership styles & theories"]},{title:"Unit 5 — Controlling & Coordination",topics:["Control: process, types, techniques","Coordination — meaning, need & principles","Management of change & conflict","Recent trends in management"]}]},
+{code:"BCA-101P",subject:"LAB: PC Software",credits:2,icon:"🖥️",pdf:"#",type:"Practical",units:[{title:"Practical 1 — MS Word",topics:["Creating & formatting documents","Tables, images, headers, footers","Mail merge & templates","Printing & document protection"]},{title:"Practical 2 — MS Excel",topics:["Workbook & worksheet basics","Formulas: SUM, AVERAGE, IF, VLOOKUP","Charts & pivot tables","Data validation & formatting"]},{title:"Practical 3 — MS PowerPoint",topics:["Creating slides & layouts","Transitions & animations","Inserting multimedia","Slide show & printing"]}]},
+{code:"BCA-103P",subject:"LAB: C Programming",credits:2,icon:"⌨️",pdf:"#",type:"Practical",units:[{title:"Practical 1 — Basics",topics:["Simple input/output programs","Arithmetic operations","Conditional statements","Loops practice"]},{title:"Practical 2 — Arrays & Functions",topics:["Array operations","String handling","Function programs","Recursion examples"]},{title:"Practical 3 — Pointers & Files",topics:["Pointer programs","Dynamic memory","Structures & unions","File read/write operations"]}]}
+],2:[
+{code:"BCA-102N",subject:"Data Structures using C",credits:4,icon:"🌳",pdf:"#",type:"Theory",units:[{title:"Unit 1 — Introduction to Data Structures",topics:["Concept of data types, ADT","Linear & non-linear data structures","Algorithm analysis, Big-O notation","Arrays: 1D, 2D; address calculation"]},{title:"Unit 2 — Stacks & Queues",topics:["Stack — operations, implementation","Applications: expression conversion","Queue — linear, circular, deque","Priority queue & applications"]},{title:"Unit 3 — Linked Lists",topics:["Singly linked list — operations","Doubly linked list — operations","Circular linked list","Comparison of arrays vs linked lists"]},{title:"Unit 4 — Trees",topics:["Tree terminology, binary tree","Traversals — inorder, preorder, postorder","Binary Search Tree (BST)","AVL trees, B-trees — basics"]},{title:"Unit 5 — Graphs & Sorting/Searching",topics:["Graph representation","Traversals — BFS & DFS","Sorting: bubble, insertion, selection, merge, quick","Searching: linear, binary; hashing"]}]},
+{code:"BCA-104N",subject:"Introduction to Database System",credits:4,icon:"🗄️",pdf:"#",type:"Theory",units:[{title:"Unit 1 — Introduction to DBMS",topics:["File systems vs DBMS","Three-tier architecture; data independence","Data models — hierarchical, relational","Database administrator & users"]},{title:"Unit 2 — Relational Model & SQL",topics:["Relations, keys — primary, foreign","Relational algebra operations","SQL: DDL, DML, DCL commands","Joins, subqueries, views, indexes"]},{title:"Unit 3 — ER Modeling & Normalization",topics:["Entity, attributes, relationships","ER diagrams","Functional dependencies","Normal forms — 1NF, 2NF, 3NF, BCNF"]},{title:"Unit 4 — Transactions & Concurrency",topics:["Transaction concept, ACID","States of a transaction","Concurrency control — locking","Deadlock handling"]},{title:"Unit 5 — Recovery & Indexing",topics:["Log-based recovery; checkpoints","Indexing — B-tree, B+ tree","Query optimization basics","Introduction to NoSQL"]}]},
+{code:"BCA-E1",subject:"Elective Paper E1",credits:4,icon:"🔀",pdf:"#",type:"Elective",units:[{title:"Option 1 — BCA-401E: Mathematics",topics:["Compulsory for those without Maths in 12th","Calculus & Integration","Linear Algebra & Matrices","Probability & Statistics"]},{title:"Option 2 — BCA-402E: Environment and Ecology",topics:["Ecosystems & Biodiversity","Pollution types & control","Environmental Laws","Sustainable Development"]},{title:"Option 3 — BCA-403E: Introduction to E-Governance",topics:["E-Governance concepts","Models & Frameworks","Applications in India","Challenges & Future"]}]},
+{code:"BCA-106N",subject:"Business Organization & Management",credits:4,icon:"💼",pdf:"#",type:"Theory",units:[{title:"Unit 1 — Business Organization",topics:["Forms of business organization","Sole proprietorship, partnership","Joint stock companies","Cooperative societies"]},{title:"Unit 2 — Management Principles",topics:["Nature & scope of management","Functions of management","Managerial skills & roles","Scientific management"]},{title:"Unit 3 — Organizational Behaviour",topics:["Individual behaviour & personality","Group dynamics & teamwork","Motivation & leadership","Organizational culture"]},{title:"Unit 4 — Marketing & Finance",topics:["Marketing mix (4P's)","Market research & segmentation","Financial management basics","Sources of business finance"]},{title:"Unit 5 — Business Environment",topics:["Economic environment","Social & cultural environment","Legal environment","Global business environment"]}]},
+{code:"BCA-108N",subject:"Digital Electronics",credits:4,icon:"🔌",pdf:"#",type:"Theory",units:[{title:"Unit 1 — Number Systems & Codes",topics:["Binary, octal, decimal, hex","Conversions & arithmetic","1's & 2's complement","BCD, ASCII, Gray code"]},{title:"Unit 2 — Logic Gates & Boolean Algebra",topics:["AND, OR, NOT, NAND, NOR, XOR","Boolean laws & theorems","K-map simplification","SOP & POS forms"]},{title:"Unit 3 — Combinational Circuits",topics:["Half adder & full adder","Multiplexers & demultiplexers","Encoders & decoders","Comparators"]},{title:"Unit 4 — Sequential Circuits",topics:["Flip-flops — SR, JK, D, T","Registers & shift registers","Counters — sync, async","Timing diagrams"]},{title:"Unit 5 — Memory & Converters",topics:["RAM, ROM, PROM, EPROM","DAC & ADC","Semiconductor memories","Programmable Logic Devices"]}]},
+{code:"BCA-102P",subject:"LAB: Data Structure",credits:2,icon:"🌳",pdf:"#",type:"Practical",units:[{title:"Practical 1 — Stacks & Queues",topics:["Stack operations using array","Stack applications","Queue using array","Circular queue"]},{title:"Practical 2 — Linked Lists",topics:["Singly linked list operations","Doubly linked list","Circular linked list","Insertion, deletion, traversal"]},{title:"Practical 3 — Trees & Sorting",topics:["Binary tree traversals","BST operations","Bubble & selection sort","Linear & binary search"]}]},
+{code:"BCA-104P",subject:"LAB: RDBMS",credits:2,icon:"🗄️",pdf:"#",type:"Practical",units:[{title:"Practical 1 — SQL Basics",topics:["CREATE, INSERT, UPDATE, DELETE","SELECT with WHERE, ORDER BY","Aggregate functions","GROUP BY & HAVING"]},{title:"Practical 2 — Advanced SQL",topics:["Joins — inner, outer, self","Subqueries","Views & indexes","Stored procedures"]},{title:"Practical 3 — Database Design",topics:["ER diagram creation","Normalization exercises","Constraints & keys","Triggers & functions"]}]}
+],3:[
+{code:"BCA-201N",subject:"Object Oriented Programming using JAVA",credits:4,icon:"☕",pdf:"#",type:"Theory",units:[{title:"Unit 1 — Introduction to Java",topics:["History, features & JVM architecture","Structure of a Java program","Data types, variables, operators","Control statements & arrays"]},{title:"Unit 2 — Classes, Objects & Inheritance",topics:["Class, object, constructors","this, static, super keywords","Method overloading & overriding","Inheritance — types, abstract classes"]},{title:"Unit 3 — Packages, Interfaces & Exceptions",topics:["Packages — creation & importing","Interfaces & multiple inheritance","Exception handling — try, catch, finally","User-defined exceptions"]},{title:"Unit 4 — Multithreading & Applets",topics:["Thread lifecycle & creation","Thread synchronization","Applet lifecycle & basics","Graphics & event handling"]},{title:"Unit 5 — AWT, Swing & JDBC",topics:["AWT components & layout managers","Swing components & containers","Event handling — delegation model","JDBC — database connectivity"]}]},
+{code:"BCA-203N",subject:"Numerical Analysis and Statistical Techniques",credits:4,icon:"📈",pdf:"#",type:"Theory",units:[{title:"Unit 1 — Numerical Solutions of Equations",topics:["Bisection method","Newton-Raphson method","Secant method","Successive approximation"]},{title:"Unit 2 — Interpolation & Approximation",topics:["Finite differences","Newton's forward & backward","Lagrange interpolation","Curve fitting"]},{title:"Unit 3 — Numerical Integration & Differentiation",topics:["Trapezoidal rule","Simpson's 1/3 & 3/8 rules","Numerical differentiation","Error analysis"]},{title:"Unit 4 — Numerical Solution of ODEs",topics:["Euler's method","Modified Euler's method","Runge-Kutta methods","Milne's predictor-corrector"]},{title:"Unit 5 — Statistical Techniques",topics:["Measures of central tendency","Correlation & regression","Probability distributions","Hypothesis testing basics"]}]},
+{code:"BCA-E2",subject:"Elective Paper E2",credits:4,icon:"🔀",pdf:"#",type:"Elective",units:[{title:"Option 1 — BCA-411E: Discrete Mathematics",topics:["Set theory & logic","Relations & functions","Graph theory","Algebraic structures & combinatorics"]},{title:"Option 2 — BCA-412E: Personality and Soft Skills Development",topics:["Self-awareness & personality","Communication & interpersonal skills","Time & stress management","Interview & presentation skills"]},{title:"Option 3 — BCA-413E: Information System for Business",topics:["MIS concepts & types","System analysis & design","ERP & CRM","Decision support systems"]}]},
+{code:"BCA-205N",subject:"Operating System",credits:4,icon:"🖥️",pdf:"#",type:"Theory",units:[{title:"Unit 1 — Introduction to OS",topics:["Functions, objectives & types of OS","OS services & system calls","Kernel types — monolithic, micro","Batch, multiprogramming, time-sharing"]},{title:"Unit 2 — Process Management",topics:["Process concept, states & PCB","Scheduling — FCFS, SJF, RR, priority","Inter-process communication","Synchronization — semaphores, mutex"]},{title:"Unit 3 — Deadlocks & Memory Management",topics:["Deadlock — conditions & handling","Banker's algorithm","Paging, segmentation","Fragmentation — internal & external"]},{title:"Unit 4 — Virtual Memory & File Systems",topics:["Demand paging & page replacement","FIFO, LRU, Optimal algorithms","File concepts & access methods","File allocation methods"]},{title:"Unit 5 — I/O Systems & Disk Scheduling",topics:["I/O hardware & device drivers","Disk scheduling — FCFS, SSTF, SCAN","RAID levels","Protection & security basics"]}]},
+{code:"BCA-207N",subject:"Computer Organization and Architecture",credits:4,icon:"🔧",pdf:"#",type:"Theory",units:[{title:"Unit 1 — Basic Computer Organization",topics:["Von Neumann architecture","Instruction formats & addressing modes","Register transfer language","Bus structure"]},{title:"Unit 2 — CPU Organization",topics:["ALU design","Control unit — hardwired & microprogrammed","Instruction pipelining","RISC vs CISC architectures"]},{title:"Unit 3 — Memory Organization",topics:["Memory hierarchy","Cache memory — mapping techniques","Virtual memory","Associative memory"]},{title:"Unit 4 — I/O Organization",topics:["I/O interfaces","Data transfer — programmed, interrupt, DMA","I/O processors","Serial & parallel communication"]},{title:"Unit 5 — Multiprocessors & Pipelining",topics:["Parallel processing concepts","Pipeline hazards","Vector processing","Array processors"]}]},
+{code:"BCA-201P",subject:"LAB: JAVA Programming",credits:2,icon:"☕",pdf:"#",type:"Practical",units:[{title:"Practical 1 — Java Basics",topics:["Hello World & basic I/O","Control statements","Arrays & strings","Classes & objects"]},{title:"Practical 2 — OOP Concepts",topics:["Inheritance programs","Interfaces","Exception handling","Packages"]},{title:"Practical 3 — Advanced Java",topics:["Multithreading","AWT & Swing programs","Event handling","JDBC connectivity"]}]},
+{code:"BCA-203P",subject:"LAB: NAST",credits:2,icon:"📈",pdf:"#",type:"Practical",units:[{title:"Practical 1 — Numerical Methods",topics:["Root finding","Interpolation","Numerical integration","ODE solutions"]},{title:"Practical 2 — Statistics",topics:["Mean, median, mode","Standard deviation","Correlation & regression","Distribution fitting"]}]}
+],4:[
+{code:"BCA-202N",subject:"Programming in Python",credits:4,icon:"🐍",pdf:"#",type:"Theory",units:[{title:"Unit 1 — Introduction to Python",topics:["History, features & applications","Installation, IDEs & running scripts","Variables, data types, input/output","Operators & expressions"]},{title:"Unit 2 — Control Flow & Data Structures",topics:["if, elif, else; loops","Lists, tuples, sets, dictionaries","List comprehensions","String methods & formatting"]},{title:"Unit 3 — Functions, Modules & Files",topics:["Function definition, arguments","Lambda, map, filter, reduce","Modules & packages","File handling — reading, writing"]},{title:"Unit 4 — Object Oriented Python",topics:["Classes, objects, constructors","Inheritance & MRO","Polymorphism, encapsulation","Special methods & properties"]},{title:"Unit 5 — Libraries & Exception Handling",topics:["NumPy — arrays & operations","Pandas — Series, DataFrame","Matplotlib — basic plotting","Exception handling — try/except"]}]},
+{code:"BCA-204N",subject:"Unix and Shell Programming",credits:4,icon:"🐧",pdf:"#",type:"Theory",units:[{title:"Unit 1 — Introduction to Unix",topics:["History & features of Unix","Unix architecture — kernel, shell","File system & types of files","Login & user management"]},{title:"Unit 2 — Unix Commands",topics:["File handling commands","Directory commands","File permissions — chmod, chown","Text processing — grep, sed, awk"]},{title:"Unit 3 — Shell Programming Basics",topics:["Shell types — Bourne, C, Korn","Variables & environment","Command line arguments","I/O redirection & pipes"]},{title:"Unit 4 — Shell Scripting",topics:["Conditional statements","Loops — for, while, until","Functions in shell","Debugging shell scripts"]},{title:"Unit 5 — Process Management & Vi Editor",topics:["Process creation & control","ps, kill, jobs, fg, bg","Vi editor — modes & commands","Scheduling & cron jobs"]}]},
+{code:"BCA-E3",subject:"Elective Paper E3",credits:4,icon:"🔀",pdf:"#",type:"Elective",units:[{title:"Option 1 — BCA-421E: E-Commerce",topics:["E-Commerce concepts & models","B2B, B2C, C2C, C2B","Payment systems & security","E-Commerce applications"]},{title:"Option 2 — BCA-422E: IT Acts and Cyber Laws",topics:["IT Act 2000 & amendments","Cyber crimes & offences","Data protection laws","Intellectual property rights"]},{title:"Option 3 — BCA-423E: Software Engineering",topics:["SDLC & process models","Requirement engineering & SRS","Software design & testing","Project management & quality"]}]},
+{code:"BCA-206N",subject:"Accounting and Financial Management",credits:4,icon:"💰",pdf:"#",type:"Theory",units:[{title:"Unit 1 — Basic Accounting Concepts",topics:["Accounting principles & conventions","Double entry system","Journal, ledger, trial balance","Accounting equation"]},{title:"Unit 2 — Final Accounts",topics:["Trading account","Profit & loss account","Balance sheet","Adjustment entries"]},{title:"Unit 3 — Cost Accounting",topics:["Cost concepts & classification","Cost sheet preparation","Standard costing","Marginal costing"]},{title:"Unit 4 — Financial Management",topics:["Objectives of financial management","Capital budgeting techniques","Working capital management","Cost of capital"]},{title:"Unit 5 — Ratio Analysis & Funds Flow",topics:["Liquidity, profitability ratios","Activity & leverage ratios","Funds flow statement","Cash flow statement"]}]},
+{code:"BCA-208N",subject:"Computer Networks",credits:4,icon:"🌐",pdf:"#",type:"Theory",units:[{title:"Unit 1 — Introduction & Reference Models",topics:["Network goals, applications & types","Topologies — bus, star, ring, mesh","OSI reference model — 7 layers","TCP/IP model & comparison"]},{title:"Unit 2 — Physical & Data Link Layer",topics:["Transmission media","Switching techniques","Error detection — parity, CRC","Flow control & ARQ"]},{title:"Unit 3 — Network Layer",topics:["IPv4 addressing & subnetting","Routing algorithms","Routing protocols — RIP, OSPF","IPv6 — features & comparison"]},{title:"Unit 4 — Transport Layer",topics:["Services & primitives","UDP — features & header format","TCP — connection & congestion control","TCP vs UDP"]},{title:"Unit 5 — Application Layer & Security",topics:["HTTP, FTP, SMTP, DNS, DHCP","WWW & email architecture","Cryptography — symmetric, asymmetric","Firewalls, SSL/TLS, VPN"]}]},
+{code:"BCA-202P",subject:"LAB: Python Programming",credits:2,icon:"🐍",pdf:"#",type:"Practical",units:[{title:"Practical 1 — Python Basics",topics:["Variables & data types","Conditionals & loops","Lists, tuples, dicts","String operations"]},{title:"Practical 2 — Functions & Files",topics:["Function programs","Lambda expressions","File read/write","Exception handling"]},{title:"Practical 3 — Libraries & OOP",topics:["NumPy & Pandas basics","Matplotlib plots","Class & object programs","Inheritance examples"]}]},
+{code:"BCA-204P",subject:"LAB: Unix and Shell Programming",credits:2,icon:"🐧",pdf:"#",type:"Practical",units:[{title:"Practical 1 — Unix Commands",topics:["File & directory commands","Permissions & ownership","Text processing","Pipes & redirection"]},{title:"Practical 2 — Shell Scripts",topics:["Basic shell scripts","Conditionals & loops","Functions & arguments","Process management"]}]}
+],5:[
+{code:"BCA-301N",subject:"Artificial Intelligence",credits:4,icon:"🤖",pdf:"#",type:"Theory",units:[{title:"Unit 1 — Introduction to AI",topics:["Definition, history & goals","Intelligent agents & environments","AI applications & trends","Ethics of AI"]},{title:"Unit 2 — Search Techniques",topics:["Uninformed — BFS, DFS, UCS","Informed — A*, greedy best-first","Hill climbing & simulated annealing","Adversarial — minimax, alpha-beta"]},{title:"Unit 3 — Knowledge Representation",topics:["Propositional & predicate logic","Semantic networks & frames","Inference rules & resolution","Uncertainty — Bayesian networks"]},{title:"Unit 4 — Machine Learning Basics",topics:["Supervised vs unsupervised","Linear & logistic regression","Decision trees & random forests","Overfitting & regularization"]},{title:"Unit 5 — Expert Systems & NLP",topics:["Expert system architecture","Knowledge acquisition & inference","NLP — tokenization, POS tagging","Applications: chatbots, translation"]}]},
+{code:"BCA-303N",subject:"Web Technologies",credits:4,icon:"🌍",pdf:"#",type:"Theory",units:[{title:"Unit 1 — HTML & CSS",topics:["HTML5 structure, tags, forms, tables","Semantic elements & multimedia","CSS — selectors, box model, positioning","Responsive design & media queries"]},{title:"Unit 2 — JavaScript",topics:["Variables, data types, operators","Functions, arrays, objects","DOM manipulation & events","ES6+ features — let/const, arrow functions"]},{title:"Unit 3 — XML & Web Servers",topics:["XML syntax, DTD, schema","XSLT & XPath basics","Web servers — Apache, Nginx","Client-server architecture & HTTP"]},{title:"Unit 4 — PHP & Server-Side Scripting",topics:["PHP basics — syntax, variables","Forms handling, sessions, cookies","MySQL connectivity with PHP","File uploads & error handling"]},{title:"Unit 5 — Web Frameworks & Security",topics:["Introduction to React, Node.js","REST APIs & JSON","Web security — XSS, CSRF, SQL injection","HTTPS, authentication & authorization"]}]},
+{code:"BCA-E4",subject:"Elective Paper E4",credits:4,icon:"🔀",pdf:"#",type:"Elective",units:[{title:"Option 1 — BCA-431E: Introduction to Cyber Security",topics:["CIA triad & security basics","Malware & threats","Cryptography basics","Network security"]},{title:"Option 2 — BCA-432E: GUI Programming",topics:["GUI design principles","Event-driven programming","Windows/Java GUI","Widgets & layout managers"]},{title:"Option 3 — BCA-433E: Operation Research",topics:["Linear programming problems","Simplex method","Transportation & assignment","Queuing theory & game theory"]}]},
+{code:"BCA-305N",subject:"Computer Graphics and Animation",credits:4,icon:"🎨",pdf:"#",type:"Theory",units:[{title:"Unit 1 — Introduction to Graphics",topics:["Applications of computer graphics","Display devices — CRT, LCD, LED","Raster scan vs random scan","Graphics hardware & input devices"]},{title:"Unit 2 — Drawing Algorithms",topics:["Line drawing — DDA, Bresenham","Circle drawing — midpoint","Ellipse & polygon drawing","Filled area primitives"]},{title:"Unit 3 — 2D Transformations & Clipping",topics:["Translation, rotation, scaling","Homogeneous coordinates","Line clipping — Cohen-Sutherland","Polygon clipping — Sutherland-Hodgman"]},{title:"Unit 4 — 3D Graphics & Animation",topics:["3D transformations & matrices","Parallel & perspective projections","Bezier & B-spline curves","Animation techniques"]},{title:"Unit 5 — Hidden Surface & Rendering",topics:["Z-buffer, painter's algorithm","Back-face detection","Shading — flat, Gouraud, Phong","Introduction to OpenGL"]}]},
+{code:"BCA-303P",subject:"LAB: Web Technologies",credits:2,icon:"🌍",pdf:"#",type:"Practical",units:[{title:"Practical 1 — HTML & CSS",topics:["Static web pages","Forms & tables","CSS styling & layouts","Responsive design"]},{title:"Practical 2 — JavaScript & PHP",topics:["JS DOM manipulation","Event handling","PHP forms & sessions","Database connectivity"]}]},
+{code:"BCA-305P",subject:"LAB: Computer Graphics",credits:2,icon:"🎨",pdf:"#",type:"Practical",units:[{title:"Practical 1 — Drawing Algorithms",topics:["DDA line drawing","Bresenham line & circle","Polygon drawing","Filling algorithms"]},{title:"Practical 2 — Transformations & Animation",topics:["2D transformations","3D transformations","Simple animations","OpenGL basics"]}]},
+{code:"BCA-307P",subject:"Industrial Training",credits:4,icon:"🏢",pdf:"#",type:"Internship",units:[{title:"Training Component",topics:["6 to 8 weeks industrial training during summer","Training certificate from organization","Training report submission","Project work based on training"]}]}
+],6:[
+{code:"BCA-302N",subject:"Introduction to Data Science",credits:4,icon:"📊",pdf:"#",type:"Theory",units:[{title:"Unit 1 — Introduction to Data Science",topics:["Definition & applications","Data science lifecycle","Roles & skills","Tools & technologies"]},{title:"Unit 2 — Data Preprocessing",topics:["Data cleaning & integration","Transformation & reduction","Handling missing values","Outlier detection"]},{title:"Unit 3 — Exploratory Data Analysis",topics:["Descriptive statistics","Data visualization","Correlation & regression","Hypothesis testing"]},{title:"Unit 4 — Machine Learning for Data Science",topics:["Supervised — regression, classification","Unsupervised — clustering","Model evaluation metrics","Cross-validation"]},{title:"Unit 5 — Data Science Tools & Applications",topics:["Python libraries — NumPy, Pandas","R for data science","Big data & Hadoop","Real-world applications"]}]},
+{code:"BCA-304N",subject:"Cloud Computing",credits:4,icon:"☁️",pdf:"#",type:"Theory",units:[{title:"Unit 1 — Introduction to Cloud Computing",topics:["Evolution from grid to cloud","Essential characteristics (NIST)","Advantages & limitations","Cloud vs traditional IT"]},{title:"Unit 2 — Service & Deployment Models",topics:["IaaS, PaaS, SaaS","Public, private, hybrid clouds","Cloud service providers","SLA & pricing models"]},{title:"Unit 3 — Virtualization & Cloud Storage",topics:["Hypervisors — Type 1 & 2","VMs vs containers (Docker)","Cloud storage — object, block","Data redundancy & replication"]},{title:"Unit 4 — Cloud Platforms",topics:["AWS core services","Microsoft Azure & Google Cloud","Serverless computing","Cloud orchestration — Kubernetes"]},{title:"Unit 5 — Cloud Security & Applications",topics:["Security challenges in cloud","Identity & access management","Data privacy & compliance","Use cases — backup, big data"]}]},
+{code:"BCA-E5",subject:"Elective Paper E5",credits:4,icon:"🔀",pdf:"#",type:"Elective",units:[{title:"Option 1 — BCA-441E: Software Testing",topics:["Testing fundamentals","Testing levels & types","Test case design","Automation tools"]},{title:"Option 2 — BCA-442E: Advanced Web Developer Technologies",topics:["Advanced JS frameworks","React / Angular","Backend APIs & microservices","Deployment & DevOps"]},{title:"Option 3 — BCA-443E: Blockchain Foundations",topics:["Blockchain basics & concepts","Cryptocurrency & Bitcoin","Smart contracts","Applications & use cases"]}]},
+{code:"BCA-306N",subject:"Internet of Things",credits:4,icon:"📡",pdf:"#",type:"Theory",units:[{title:"Unit 1 — Introduction to IoT",topics:["Definition, vision & evolution","IoT vs M2M vs WoT","Applications — smart home, city","Challenges & design considerations"]},{title:"Unit 2 — IoT Architecture & Sensors",topics:["5-layer IoT architecture","Sensors & actuators","Arduino & Raspberry Pi","Edge vs fog vs cloud computing"]},{title:"Unit 3 — IoT Protocols & Communication",topics:["MQTT, CoAP, AMQP","Wireless — BLE, Zigbee, LoRa","IPv6 & 6LoWPAN","RFID & NFC"]},{title:"Unit 4 — IoT Platforms & Cloud",topics:["AWS IoT, Azure IoT Hub","Data analytics for IoT","Time-series databases","Digital twins"]},{title:"Unit 5 — IoT Applications & Security",topics:["Smart cities & industrial IoT","Security challenges in IoT","Authentication & encryption","Privacy concerns & future"]}]},
+{code:"BCA-302P",subject:"LAB: Data Science",credits:2,icon:"📊",pdf:"#",type:"Practical",units:[{title:"Practical 1 — Data Analysis",topics:["NumPy arrays & operations","Pandas DataFrames","Data cleaning techniques","Exploratory analysis"]},{title:"Practical 2 — Visualization & ML",topics:["Matplotlib & Seaborn plots","Scikit-learn basics","Regression & classification","Model evaluation"]}]},
+{code:"BCA-308P",subject:"Major Project",credits:6,icon:"🎓",pdf:"#",type:"Project",units:[{title:"Project Components",topics:["Project domain selection & synopsis","System analysis & design","Implementation & coding","Testing, documentation & viva"]}]}
+]};
 
-// ═══════════════════════════════════════════════════════════════
-// 3. NOTES DATA (BASED ON NEW SYLLABUS)
-// ═══════════════════════════════════════════════════════════════
 const notesData=[
-{sem:1,subject:"Programming with C",icon:"⌨️",desc:"Complete handwritten notes covering all 5 units with solved programs & flowcharts.",tags:["Handwritten","Programs","All Units"],size:"4.3 MB"},
+{sem:1,subject:"Programming with C",icon:"⌨️",desc:"Complete handwritten notes covering all 5 units with solved programs & flowcharts.",tags:["Handwritten","Programs"],size:"4.3 MB"},
 {sem:1,subject:"Computer Fundamentals and PC Software",icon:"💻",desc:"Short notes with diagrams for MS Word, Excel, PowerPoint & Internet basics.",tags:["Diagrams","Practical"],size:"3.2 MB"},
 {sem:1,subject:"Basic Mathematics",icon:"📐",desc:"Formula sheet + solved examples for calculus, matrices & probability.",tags:["Formula","Solved"],size:"2.9 MB"},
-{sem:1,subject:"Principle of Management",icon:"📊",desc:"Complete management notes — Taylor, Fayol, Weber theories with diagrams.",tags:["Theory","Diagrams"],size:"3.0 MB"},
+{sem:1,subject:"Principle of Management",icon:"📊",desc:"Complete management notes — Taylor, Fayol, Weber theories with diagrams.",tags:["Theory"],size:"3.0 MB"},
 {sem:2,subject:"Data Structures using C",icon:"🌳",desc:"All data structures with code, diagrams & time complexity analysis.",tags:["Code","Diagrams"],size:"5.8 MB"},
 {sem:2,subject:"Introduction to Database System",icon:"🗄️",desc:"SQL queries, normalization examples & ER diagram cheatsheet.",tags:["SQL","Cheatsheet"],size:"4.7 MB"},
 {sem:2,subject:"Digital Electronics",icon:"🔌",desc:"Logic gates, K-maps, flip-flops & circuits with truth tables.",tags:["Circuits","Truth Tables"],size:"4.1 MB"},
 {sem:2,subject:"Business Organization & Management",icon:"💼",desc:"Business org forms, management principles & marketing notes.",tags:["Theory"],size:"3.5 MB"},
 {sem:3,subject:"Object Oriented Programming using JAVA",icon:"☕",desc:"Complete Java notes with AWT, Swing, JDBC & multithreading examples.",tags:["Code","All Units"],size:"5.5 MB"},
-{sem:3,subject:"Operating System",icon:"🖥️",desc:"Theory notes + scheduling, deadlock & memory algorithms with examples.",tags:["Theory","Algorithms"],size:"4.8 MB"},
+{sem:3,subject:"Operating System",icon:"🖥️",desc:"Theory notes + scheduling, deadlock & memory algorithms.",tags:["Theory","Algorithms"],size:"4.8 MB"},
 {sem:3,subject:"Computer Organization and Architecture",icon:"🔧",desc:"CPU, memory, pipelining & I/O organization with diagrams.",tags:["Diagrams"],size:"4.4 MB"},
 {sem:3,subject:"Numerical Analysis and Statistical Techniques",icon:"📈",desc:"All numerical methods + statistics formulas with solved examples.",tags:["Formula","Solved"],size:"5.0 MB"},
-{sem:4,subject:"Programming in Python",icon:"🐍",desc:"Beginner-friendly Python with 50+ programs & library examples.",tags:["Programs","Beginner"],size:"5.2 MB"},
+{sem:4,subject:"Programming in Python",icon:"🐍",desc:"Beginner-friendly Python with 50+ programs & library examples.",tags:["Programs"],size:"5.2 MB"},
 {sem:4,subject:"Unix and Shell Programming",icon:"🐧",desc:"Unix commands, shell scripts, vi editor & process management.",tags:["Commands","Scripts"],size:"4.3 MB"},
 {sem:4,subject:"Computer Networks",icon:"🌐",desc:"OSI layers, protocols, subnetting & routing with diagrams.",tags:["Diagrams","Examples"],size:"4.6 MB"},
 {sem:4,subject:"Accounting and Financial Management",icon:"💰",desc:"Accounting basics, final accounts, ratios & funds flow.",tags:["Solved"],size:"3.7 MB"},
@@ -1356,11 +1167,8 @@ const notesData=[
 {sem:6,subject:"Internet of Things",icon:"📡",desc:"IoT architecture, protocols, sensors & applications.",tags:["Diagrams","Theory"],size:"4.9 MB"}
 ];
 
-// ═══════════════════════════════════════════════════════════════
-// 4. IMPORTANT QUESTIONS (NEW SYLLABUS)
-// ═══════════════════════════════════════════════════════════════
 const questionsData=[
-{sem:1,year:2025,q:"Explain the evolution of management thought with contributions of Taylor, Fayol and Weber.",ans:"Taylor — Scientific Management (time & motion study, standardization). Fayol — 14 principles of management, 5 functions (Planning, Organizing, Commanding, Coordinating, Controlling). Weber — Bureaucratic theory (hierarchy, rules, impersonality)."},
+{sem:1,year:2025,q:"Explain the evolution of management thought with contributions of Taylor, Fayol and Weber.",ans:"Taylor — Scientific Management (time & motion study, standardization). Fayol — 14 principles of management, 5 functions. Weber — Bureaucratic theory (hierarchy, rules, impersonality)."},
 {sem:1,year:2024,q:"Difference between call by value and call by reference in C. Give examples with code.",ans:"Call by value — copy of argument passed, changes don't affect original. Call by reference — address passed (using pointers), changes affect original. Swap program example."},
 {sem:1,year:2025,q:"Find inverse of matrix A=[[2,1],[5,3]] using adjoint method.",ans:"det(A)=2·3−1·5=1. adj(A)=[[3,−1],[−5,2]]. A⁻¹=(1/1)·adj(A)=[[3,−1],[−5,2]]."},
 {sem:1,year:2025,q:"Explain number systems in computers — binary, octal, hexadecimal with conversion examples.",ans:"Binary (base 2), Octal (base 8), Decimal (base 10), Hex (base 16). Conversions: e.g. (45)₁₀ = (101101)₂ = (55)₈ = (2D)₁₆."},
@@ -1370,22 +1178,19 @@ const questionsData=[
 {sem:2,year:2025,q:"Explain K-map simplification with example of 4-variable function.",ans:"Karnaugh map groups adjacent 1s in powers of 2 (1,2,4,8). Group largest possible. Example: F(A,B,C,D)=Σ(0,1,2,3,8,9,10,11) → F=A'B'+AB'."},
 {sem:3,year:2025,q:"Explain OOP concepts — encapsulation, inheritance, polymorphism with Java examples.",ans:"Encapsulation — data hiding (private + getters/setters). Inheritance — extends keyword, IS-A relationship. Polymorphism — method overloading (compile-time) & overriding (runtime)."},
 {sem:3,year:2025,q:"Differentiate between process and thread. Explain thread lifecycle in detail.",ans:"Process — independent, own memory space. Thread — lightweight, shares memory. Lifecycle: New → Runnable → Running → Waiting/Blocked → Terminated. States explained with diagram."},
-{sem:3,year:2024,q:"Explain Newton-Raphson method for finding roots with example. Compare with Bisection method.",ans:"Newton-Raphson: x_{n+1}=x_n - f(x_n)/f'(x_n). Fast quadratic convergence. Bisection: slower linear convergence but guaranteed convergence. Example f(x)=x²-4 → root=2."},
-{sem:3,year:2025,q:"Explain demand paging and page replacement algorithms (FIFO, LRU, Optimal) with examples.",ans:"Demand paging — pages loaded only when needed. FIFO — replaces oldest page. LRU — replaces least recently used. Optimal — replaces page used farthest in future (theoretical best)."},
+{sem:3,year:2024,q:"Explain Newton-Raphson method for finding roots with example. Compare with Bisection method.",ans:"Newton-Raphson: x_{n+1}=x_n - f(x_n)/f'(x_n). Fast quadratic convergence. Bisection: slower linear convergence but guaranteed. Example f(x)=x²-4 → root=2."},
+{sem:3,year:2025,q:"Explain demand paging and page replacement algorithms (FIFO, LRU, Optimal) with examples.",ans:"Demand paging — pages loaded only when needed. FIFO — replaces oldest page. LRU — replaces least recently used. Optimal — replaces page used farthest in future."},
 {sem:4,year:2025,q:"Explain Python data structures — list, tuple, set, dict with examples and use cases.",ans:"List — ordered, mutable [1,2,3]. Tuple — ordered, immutable (1,2,3). Set — unordered unique {1,2,3}. Dict — key-value pairs {'a':1}. Use cases for each."},
 {sem:4,year:2025,q:"Explain OSI model layers with functions and protocols. Compare with TCP/IP model.",ans:"OSI 7 layers: Physical, Data Link, Network, Transport, Session, Presentation, Application. TCP/IP: 4 layers. OSI is reference model, TCP/IP is implementation."},
-{sem:4,year:2024,q:"Explain Unix file permissions and chmod command with examples.",ans:"Permissions: rwx for owner, group, others. Numeric: r=4, w=2, x=1. chmod 755 file → rwxr-xr-x. Symbolic: chmod u+x file. Explained with examples."},
+{sem:4,year:2024,q:"Explain Unix file permissions and chmod command with examples.",ans:"Permissions: rwx for owner, group, others. Numeric: r=4, w=2, x=1. chmod 755 file → rwxr-xr-x. Symbolic: chmod u+x file."},
 {sem:5,year:2025,q:"Explain A* search algorithm with example. Compare with BFS and DFS.",ans:"A* uses f(n)=g(n)+h(n). g=cost from start, h=heuristic to goal. Optimal if h admissible. BFS complete but memory-heavy. DFS memory-efficient but not optimal."},
 {sem:5,year:2025,q:"Explain MVC architecture with example in Web Technologies.",ans:"Model — data & business logic. View — presentation (HTML/CSS). Controller — handles requests, updates model, selects view. Example: User login flow."},
 {sem:5,year:2024,q:"Explain DDA and Bresenham line drawing algorithms with advantages.",ans:"DDA — uses floating point, simple but slower. Bresenham — integer arithmetic, faster & more accurate, only addition/subtraction. Bresenham preferred for hardware."},
-{sem:6,year:2025,q:"Explain supervised vs unsupervised learning with real-world examples.",ans:"Supervised — labeled data (spam detection, price prediction). Unsupervised — unlabeled data, find patterns (customer segmentation, anomaly detection). Supervised: regression & classification. Unsupervised: clustering & dimensionality reduction."},
-{sem:6,year:2025,q:"Compare IaaS, PaaS, and SaaS with real-world examples and use cases.",ans:"IaaS — raw infrastructure (AWS EC2, Azure VMs). PaaS — platform to deploy apps (Heroku, Google App Engine). SaaS — ready-to-use software (Gmail, Salesforce). Responsibility decreases from IaaS to SaaS."},
-{sem:6,year:2024,q:"Explain IoT architecture (5-layer) with sensors, actuators and applications.",ans:"5 layers: Perception (sensors), Network (connectivity), Middleware (data processing), Application (services), Business (management). Sensors collect data, actuators perform actions. Applications: smart home, city, health."}
+{sem:6,year:2025,q:"Explain supervised vs unsupervised learning with real-world examples.",ans:"Supervised — labeled data (spam detection, price prediction). Unsupervised — unlabeled data, find patterns (customer segmentation). Supervised: regression & classification. Unsupervised: clustering."},
+{sem:6,year:2025,q:"Compare IaaS, PaaS, and SaaS with real-world examples and use cases.",ans:"IaaS — raw infrastructure (AWS EC2, Azure VMs). PaaS — platform to deploy apps (Heroku). SaaS — ready-to-use software (Gmail, Salesforce). Responsibility decreases from IaaS to SaaS."},
+{sem:6,year:2024,q:"Explain IoT architecture (5-layer) with sensors, actuators and applications.",ans:"5 layers: Perception (sensors), Network (connectivity), Middleware (data processing), Application (services), Business (management). Applications: smart home, city, health."}
 ];
 
-// ═══════════════════════════════════════════════════════════════
-// 5. MOCK TESTS DATA (NEW SYLLABUS)
-// ═══════════════════════════════════════════════════════════════
 const testsData=[
 {sem:1,subject:"Programming with C",questions:25,time:25,icon:"⌨️"},
 {sem:1,subject:"Computer Fundamentals and PC Software",questions:20,time:20,icon:"💻"},
@@ -1428,6 +1233,7 @@ const noticesData=[
 
 const contribNames=["Aarav S.","Priya M.","Rahul K.","Anjali V.","Vikram T.","Neha G."];
 
+// ========== HELPERS ==========
 function hash(s){let h=2166136261;for(let i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,16777619)}return Math.abs(h)}
 function slug(s){return s.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"")}
 function unSlug(s){return s.replace(/-/g," ").replace(/\b\w/g,c=>c.toUpperCase())}
@@ -1531,28 +1337,14 @@ function renderHome(){
 }
 
 function renderNotices(){
-  $("#noticeList").innerHTML=noticesData.map(n=>`
-    <div class="notice-item" data-notice-link="${n.link}">
-      <span class="n-icon">${n.icon}</span>
-      <div class="n-text">${esc(n.text)}</div>
-      <span class="n-date">${n.date}</span>
-      <a href="${n.link}" data-link class="n-view">View →</a>
-    </div>`).join("");
-  $("#noticeList").querySelectorAll("[data-notice-link]").forEach(el=>{
-    el.addEventListener("click",e=>{if(e.target.closest("a"))return;const link=el.dataset.noticeLink;if(link&&link.startsWith("#/"))window.location.hash=link.replace("#","")});
-  });
+  $("#noticeList").innerHTML=noticesData.map(n=>`<div class="notice-item" data-notice-link="${n.link}"><span class="n-icon">${n.icon}</span><div class="n-text">${esc(n.text)}</div><span class="n-date">${n.date}</span><a href="${n.link}" data-link class="n-view">View →</a></div>`).join("");
+  $("#noticeList").querySelectorAll("[data-notice-link]").forEach(el=>{el.addEventListener("click",e=>{if(e.target.closest("a"))return;const link=el.dataset.noticeLink;if(link&&link.startsWith("#/"))window.location.hash=link.replace("#","")})});
 }
 function renderRecent(){const recent=getRecent();const sec=$("#recentSection");if(!recent.length){sec.style.display="none";return}sec.style.display="block";const all=getAllPapers();$("#recentRow").innerHTML=recent.map(id=>{const p=all.find(x=>x.id===id);if(!p)return"";return`<div class="recent-card" data-open="${p.id}"><div class="r-head"><div class="r-avatar" style="background:${colorFor(p.subject)}">${esc(p.subject.charAt(0))}</div><div style="min-width:0"><div class="r-sub">${esc(p.subject)}</div><div class="r-meta">Sem ${p.sem} · ${p.year}</div></div></div></div>`}).join("")}
 
 function cardHTML(p,i){
   const isNew=p.year===2025;const saved=isBookmarked(p.id);const rating=getRating(p.id);
-  return`<article class="card ${isNew?"is-new":""}" style="animation-delay:${Math.min((i||0)*20,360)}ms">
-    <div class="card-top"><div style="display:flex;gap:6px;flex-wrap:wrap"><span class="badge ${p.type}">${p.type==="solved"?"Solved":"Unsolved"}</span>${isNew?`<span class="badge new">New</span>`:``}</div>
-    <div class="card-top-right"><span class="year">${p.year}</span><button class="mini-icon ${saved?"saved":""}" data-bm="${p.id}" title="Save">${saved?"♥":"♡"}</button></div></div>
-    <div class="card-body" data-open="${p.id}"><div class="avatar" style="background:${colorFor(p.subject)}">${esc(p.subject.charAt(0))}</div>
-    <div style="min-width:0;flex:1"><h3>${esc(p.subject)}</h3><p class="meta"><b>Semester ${p.sem}</b><span class="sep">·</span>${p.exam}</p><p class="meta">PDF<span class="sep">·</span>${p.size}<span class="sep">·</span>${fmtViews(getViews(p.id))} views</p>${rating>0?`<div style="font-size:.72rem;color:var(--muted);margin-top:3px"><span style="color:var(--ad)">${starsHTML(rating)}</span> ${rating.toFixed(1)}</div>`:""}</div></div>
-    <div class="card-actions"><button class="btn btn-ghost" data-preview="${p.id}">👁 Preview</button><button class="btn btn-primary" data-dl="${p.id}">⬇ Download</button></div>
-  </article>`;
+  return`<article class="card ${isNew?"is-new":""}" style="animation-delay:${Math.min((i||0)*20,360)}ms"><div class="card-top"><div style="display:flex;gap:6px;flex-wrap:wrap"><span class="badge ${p.type}">${p.type==="solved"?"Solved":"Unsolved"}</span>${isNew?`<span class="badge new">New</span>`:``}</div><div class="card-top-right"><span class="year">${p.year}</span><button class="mini-icon ${saved?"saved":""}" data-bm="${p.id}">${saved?"♥":"♡"}</button></div></div><div class="card-body" data-open="${p.id}"><div class="avatar" style="background:${colorFor(p.subject)}">${esc(p.subject.charAt(0))}</div><div style="min-width:0;flex:1"><h3>${esc(p.subject)}</h3><p class="meta"><b>Semester ${p.sem}</b><span class="sep">·</span>${p.exam}</p><p class="meta">PDF<span class="sep">·</span>${p.size}<span class="sep">·</span>${fmtViews(getViews(p.id))} views</p>${rating>0?`<div style="font-size:.72rem;color:var(--muted);margin-top:3px"><span style="color:var(--ad)">${starsHTML(rating)}</span> ${rating.toFixed(1)}</div>`:""}</div></div><div class="card-actions"><button class="btn btn-ghost" data-preview="${p.id}">👁 Preview</button><button class="btn btn-primary" data-dl="${p.id}">⬇ Download</button></div></article>`;
 }
 
 function renderPapers(){
@@ -1576,7 +1368,7 @@ function renderPapers(){
     $$("#semChips .count").forEach(el=>{el.textContent=counts[el.dataset.count]??0});
     const parts=[];parts.push(state.sem==="all"?"All Semesters":`Semester ${state.sem}`);
     if(state.year!=="all")parts.push(state.year);if(state.type!=="all")parts.push(state.type==="solved"?"Solved":"Unsolved");
-    if(state.bookmarksOnly)parts.push("Saved");if(state.q)parts.push(`“${state.q}”`);
+    if(state.bookmarksOnly)parts.push("Saved");if(state.q)parts.push(`"${state.q}"`);
     $("#resultTitle").innerHTML=`${esc(parts.join(" · "))} <span>— ${list.length} paper${list.length!==1?"s":""}</span>`;
     if(!list.length){$("#grid").innerHTML=`<div class="empty"><div class="emoji">${state.bookmarksOnly?"🔖":"🔍"}</div><h3>${state.bookmarksOnly?"No saved papers":"No papers found"}</h3><p>Try different filters.</p><button class="btn btn-primary" style="max-width:180px;margin:0 auto" onclick="resetFilters()">Reset</button></div>`;return}
     $("#grid").innerHTML=list.map((p,i)=>cardHTML(p,i)).join("");
@@ -1633,12 +1425,7 @@ function renderSyllabus(){
   gridEl.innerHTML=list.map((s,si)=>{
     let subjDone=0;s.units.forEach((u,ui)=>{if(isUnitDone(`${sem}-${si}-${ui}`))subjDone++});
     const subjPct=Math.round(subjDone/s.units.length*100);
-    return`<article class="syl-card" style="animation-delay:${Math.min(si*40,320)}ms">
-      <div class="syl-head"><div class="syl-icon">${s.icon}</div><div style="flex:1"><h3>${esc(s.subject)}</h3><div class="syl-code"><span class="tag">${s.code}</span><span class="tag credits">${s.credits} Credits</span>${typeTag(s.type)}<span class="tag">${s.units.length} Units</span></div></div></div>
-      <div class="progress-bar-wrap"><div class="progress-track"><div class="progress-fill" style="width:${subjPct}%"></div></div><div class="progress-text">${subjDone}/${s.units.length} ✓</div></div>
-      <div class="syl-units">${s.units.map((u,ui)=>{const id=`${sem}-${si}-${ui}`;const done=isUnitDone(id);return`<div class="unit"><div class="unit-head"><div class="unit-check ${done?"done":""}" data-check="${id}" title="Mark done">✓</div><div class="unit-toggle" data-toggle-unit><span class="ut">${esc(u.title)}</span><span class="arrow">▶</span></div></div><div class="unit-topics"><ul>${u.topics.map(t=>`<li>${esc(t)}</li>`).join("")}</ul></div></div>`}).join("")}</div>
-      <div class="syl-actions"><button class="btn btn-ghost" data-syl-view="${esc(s.subject)}">👁 View</button><button class="btn btn-syllabus" data-syl-dl="${esc(s.subject)}">⬇ Download</button></div>
-    </article>`;
+    return`<article class="syl-card" style="animation-delay:${Math.min(si*40,320)}ms"><div class="syl-head"><div class="syl-icon">${s.icon}</div><div style="flex:1"><h3>${esc(s.subject)}</h3><div class="syl-code"><span class="tag">${s.code}</span><span class="tag credits">${s.credits} Credits</span>${typeTag(s.type)}<span class="tag">${s.units.length} Units</span></div></div></div><div class="progress-bar-wrap"><div class="progress-track"><div class="progress-fill" style="width:${subjPct}%"></div></div><div class="progress-text">${subjDone}/${s.units.length} ✓</div></div><div class="syl-units">${s.units.map((u,ui)=>{const id=`${sem}-${si}-${ui}`;const done=isUnitDone(id);return`<div class="unit"><div class="unit-head"><div class="unit-check ${done?"done":""}" data-check="${id}" title="Mark done">✓</div><div class="unit-toggle" data-toggle-unit><span class="ut">${esc(u.title)}</span><span class="arrow">▶</span></div></div><div class="unit-topics"><ul>${u.topics.map(t=>`<li>${esc(t)}</li>`).join("")}</ul></div></div>`}).join("")}</div><div class="syl-actions"><button class="btn btn-ghost" data-syl-view="${esc(s.subject)}">👁 View</button><button class="btn btn-syllabus" data-syl-dl="${esc(s.subject)}">⬇ Download</button></div></article>`;
   }).join("");
   gridEl.querySelectorAll("[data-check]").forEach(el=>el.addEventListener("click",e=>{e.stopPropagation();toggleUnit(el.dataset.check);renderSyllabus()}));
   gridEl.querySelectorAll("[data-toggle-unit]").forEach(h=>h.addEventListener("click",()=>h.closest(".unit").classList.toggle("open")));
