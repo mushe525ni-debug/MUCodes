@@ -5,12 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MUCodes — Your Ultimate BCA Companion | MJPRU BCA 2024-25</title>
 <meta name="description" content="MUCodes — MJPRU BCA (2024-25 syllabus) previous year question papers, complete syllabus, notes, important questions & mock tests. 100% free.">
-<meta name="keywords" content="MUCodes, MJPRU, BCA, question papers, syllabus, notes, PYQ, solved papers, mock tests">
-<meta name="author" content="MUCodes">
-<meta property="og:title" content="MUCodes — Your Ultimate BCA Companion">
-<meta property="og:description" content="MJPRU BCA (2024-25) papers, syllabus, notes, important questions & mock tests.">
-<meta property="og:url" content="https://mucodes.in">
-<meta property="og:type" content="website">
 <meta name="theme-color" content="#4f46e5">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%234f46e5'/><text x='50' y='68' font-size='52' text-anchor='middle' fill='white' font-weight='bold'>M</text></svg>">
 <style>
@@ -22,8 +16,6 @@
   .wrap{max-width:1180px;margin:0 auto;padding:0 20px}
   button{font-family:inherit;cursor:pointer}
   img{max-width:100%}
-
-  /* ===== MOBILE OVERFLOW FIX (CRITICAL) ===== */
   html, body { overflow-x: hidden !important; max-width: 100vw; width: 100%; position: relative; }
   .nav-left { display: flex; align-items: center; gap: 10px; min-width: 0; flex-shrink: 0; }
   .nav-left .logo { min-width: 0; }
@@ -88,8 +80,6 @@
   .drop-item.danger:hover{background:var(--danger-soft)}
   .drop-item .ico{font-size:1rem}
   .mobile-toggle{display:none;width:38px;height:38px;border-radius:10px;border:1px solid var(--border);background:var(--surface);color:var(--text);font-size:1.15rem;place-items:center;flex-shrink:0;cursor:pointer}
-
-  /* MOBILE MENU — SLIDES FROM LEFT */
   .mobile-menu-overlay{position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);z-index:100;opacity:0;visibility:hidden;transition:.25s;overflow:hidden}
   .mobile-menu-overlay.open{opacity:1;visibility:visible}
   .mobile-menu-inner{position:absolute;top:0;left:0;width:82%;max-width:320px;height:100%;background:var(--surface);padding:22px;overflow-y:auto;transform:translateX(-100%);transition:.3s cubic-bezier(.2,.9,.3,1);display:flex;flex-direction:column;gap:6px;box-shadow:10px 0 40px rgba(0,0,0,.2)}
@@ -131,16 +121,17 @@
   .clear-btn{position:absolute;right:12px;top:50%;transform:translateY(-50%);width:28px;height:28px;border-radius:50%;border:none;background:var(--surface-2);color:var(--muted);display:none;place-items:center;font-size:.85rem}
   .clear-btn.show{display:grid}
   .clear-btn.show ~ .kbd-hint{display:none}
-  .search-suggestions{position:absolute;top:calc(100% + 8px);left:0;right:0;background:var(--surface);border:1px solid var(--border);border-radius:14px;box-shadow:var(--shadow-lg);padding:6px;max-height:340px;overflow-y:auto;z-index:40;opacity:0;visibility:hidden;transform:translateY(-6px);transition:.18s}
+  .search-suggestions{position:absolute;top:calc(100% + 8px);left:0;right:0;background:var(--surface);border:1px solid var(--border);border-radius:14px;box-shadow:var(--shadow-lg);padding:6px;max-height:400px;overflow-y:auto;z-index:40;opacity:0;visibility:hidden;transform:translateY(-6px);transition:.18s}
   .search-suggestions.open{opacity:1;visibility:visible;transform:translateY(0)}
   .sugg-label{font-size:.68rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);padding:8px 12px 4px}
   .sugg-item{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:9px;cursor:pointer;transition:.12s}
-  .sugg-item:hover{background:var(--primary-soft)}
-  .sugg-item .sugg-icon{width:30px;height:30px;border-radius:8px;background:var(--surface-2);display:grid;place-items:center;font-size:.85rem;flex-shrink:0}
+  .sugg-item:hover,.sugg-item.active{background:var(--primary-soft)}
+  .sugg-item .sugg-icon{width:34px;height:34px;border-radius:9px;background:var(--surface-2);display:grid;place-items:center;font-size:.9rem;flex-shrink:0;font-weight:800}
   .sugg-item .sugg-text{flex:1;min-width:0}
-  .sugg-item .sugg-title{font-size:.85rem;font-weight:700}
-  .sugg-item .sugg-meta{font-size:.7rem;color:var(--muted)}
+  .sugg-item .sugg-title{font-size:.86rem;font-weight:700}
+  .sugg-item .sugg-meta{font-size:.7rem;color:var(--muted);margin-top:2px}
   .sugg-empty{padding:20px;text-align:center;font-size:.84rem;color:var(--muted)}
+  .sugg-empty b{color:var(--primary)}
   .stats{display:flex;justify-content:center;gap:34px;margin-top:24px;flex-wrap:wrap}
   .stat{text-align:center}
   .stat b{display:block;font-size:1.4rem;font-weight:800;letter-spacing:-.02em}
@@ -291,7 +282,6 @@
   .btn-notes{background:var(--notes);color:#fff}
   .question-list{display:flex;flex-direction:column;gap:11px;padding-bottom:40px}
   .question-item{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;box-shadow:var(--shadow);animation:rise .3s ease backwards}
-  .question-item:hover{border-color:color-mix(in srgb,var(--questions) 45%,var(--border))}
   .q-head{display:flex;gap:11px;margin-bottom:8px}
   .q-num{width:30px;height:30px;min-width:30px;border-radius:8px;background:var(--questions-soft);color:var(--questions);display:grid;place-items:center;font-weight:800;font-size:.82rem}
   .q-text{font-size:.88rem;font-weight:600;line-height:1.45;flex:1}
@@ -413,8 +403,6 @@
   .float-btn.top{background:var(--primary);color:#fff;font-size:1.1rem;opacity:0;visibility:hidden}
   .float-btn.top.show{opacity:1;visibility:visible}
   .float-btn.timer{background:var(--tests);color:#fff;font-size:1.1rem}
-  .float-btn::after{content:attr(data-tip);position:absolute;right:60px;top:50%;transform:translateY(-50%);background:var(--text);color:var(--surface);padding:5px 10px;border-radius:7px;font-size:.72rem;font-weight:700;white-space:nowrap;opacity:0;pointer-events:none;transition:.2s}
-  .float-btn:hover::after{opacity:1}
   .modal-overlay{position:fixed;inset:0;z-index:100;background:rgba(10,10,20,.65);backdrop-filter:blur(5px);display:none;place-items:center;padding:20px;overflow-y:auto}
   .modal-overlay.open{display:grid;animation:fadeIn .18s ease}
   .modal{background:var(--surface);border:1px solid var(--border);border-radius:18px;max-width:580px;width:100%;max-height:90vh;overflow-y:auto;box-shadow:var(--shadow-lg);animation:popIn .28s cubic-bezier(.2,.9,.3,1.15);margin:auto}
@@ -498,49 +486,9 @@
   .nf-wrap p{color:var(--muted);font-size:.94rem;margin-bottom:22px;max-width:420px;margin-left:auto;margin-right:auto}
   .nf-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
   .nf-actions .btn{flex:0 0 auto;padding:11px 20px}
-
-  @media (max-width:1024px){
-    .main-nav{display:none}
-    .mobile-toggle{display:grid}
-    .foot-grid{grid-template-columns:1fr 1fr}
-    .dash-grid{grid-template-columns:1fr}
-    .contact-grid{grid-template-columns:1fr}
-    .nav{gap:8px}
-    .logo small{display:none}
-    .icon-btn{width:36px;height:36px;font-size:.9rem}
-    .btn-auth{padding:7px 12px;font-size:.78rem}
-  }
-  @media (max-width:640px){
-    .hero{padding:30px 0 18px}
-    .stats{gap:18px}
-    .filter-label{min-width:100%}
-    .grid,.syllabus-grid,.notes-grid,.test-grid{grid-template-columns:1fr}
-    .modal-meta{grid-template-columns:1fr}
-    .toast-wrap{left:16px;right:16px;align-items:stretch}
-    .toast{max-width:none}
-    .syllabus-head .sh-stats,.dash-stats,.admin-head .ah-stats{margin-left:0;width:100%}
-    .user-name{display:none}
-    .auth-btns .btn-login{display:none}
-    .foot-grid{grid-template-columns:1fr}
-    .pdf-frame-wrap iframe{height:360px}
-    .study-timer{left:16px;right:16px;width:auto;bottom:78px}
-    .float-group{bottom:16px;right:16px}
-    .float-btn{width:46px;height:46px;font-size:1.2rem}
-    .notice-item{flex-wrap:wrap}
-    .notice-item .n-date{font-size:.66rem}
-  }
-  @media (max-width:480px){
-    .wrap{padding:0 14px}
-    .nav{gap:6px}
-    .nav-left{gap:8px}
-    .nav-right{gap:5px}
-    .logo{font-size:.92rem}
-    .logo-mark{width:32px;height:32px;font-size:.75rem}
-    .icon-btn{width:34px;height:34px;font-size:.85rem}
-    .btn-signup{padding:7px 10px;font-size:.74rem}
-    .mobile-toggle{width:34px;height:34px;font-size:1rem}
-  }
-  @media print{header,footer,.float-group,.study-timer,.announcement-bar,.breadcrumb,.mobile-menu-overlay,.ad-slot,.toast-wrap,.modal-actions,#bookmarkBtn,#themeBtn{display:none!important}.modal-overlay{position:static;background:none;padding:0;display:block!important}.modal{box-shadow:none;border:none;max-width:100%}body{background:#fff;color:#000}}
+  @media (max-width:1024px){.main-nav{display:none}.mobile-toggle{display:grid}.foot-grid{grid-template-columns:1fr 1fr}.dash-grid{grid-template-columns:1fr}.contact-grid{grid-template-columns:1fr}.nav{gap:8px}.logo small{display:none}.icon-btn{width:36px;height:36px;font-size:.9rem}.btn-auth{padding:7px 12px;font-size:.78rem}}
+  @media (max-width:640px){.hero{padding:30px 0 18px}.stats{gap:18px}.filter-label{min-width:100%}.grid,.syllabus-grid,.notes-grid,.test-grid{grid-template-columns:1fr}.modal-meta{grid-template-columns:1fr}.toast-wrap{left:16px;right:16px;align-items:stretch}.toast{max-width:none}.syllabus-head .sh-stats,.dash-stats,.admin-head .ah-stats{margin-left:0;width:100%}.user-name{display:none}.auth-btns .btn-login{display:none}.foot-grid{grid-template-columns:1fr}.study-timer{left:16px;right:16px;width:auto;bottom:78px}.float-group{bottom:16px;right:16px}.float-btn{width:46px;height:46px;font-size:1.2rem}.notice-item{flex-wrap:wrap}}
+  @media (max-width:480px){.wrap{padding:0 14px}.nav{gap:6px}.nav-left{gap:8px}.nav-right{gap:5px}.logo{font-size:.92rem}.logo-mark{width:32px;height:32px;font-size:.75rem}.icon-btn{width:34px;height:34px;font-size:.85rem}.btn-signup{padding:7px 10px;font-size:.74rem}.mobile-toggle{width:34px;height:34px;font-size:1rem}}
 </style>
 </head>
 <body>
@@ -628,7 +576,7 @@
       <p>MJPRU BCA (2024-25) papers, syllabus, notes, important questions &amp; mock tests — all free, all in one place.</p>
       <div class="search-box">
         <span class="search-icon">🔍</span>
-        <input type="text" id="searchHome" placeholder="Search subject or year — e.g. “Java” or “2025”" autocomplete="off">
+        <input type="text" id="searchHome" placeholder="Type subject name — e.g. C, Java, Maths" autocomplete="off">
         <button class="clear-btn" id="clearHome">✕</button>
         <div class="kbd-hint"><span class="kbd">Ctrl</span><span class="kbd">K</span></div>
         <div class="search-suggestions" id="searchSugg"></div>
@@ -877,105 +825,84 @@
   </div>
 </div>
 
-<div class="view" id="view-about">
-  <div class="wrap"><div class="content-page">
-    <h1>About MUCodes</h1>
-    <p class="lead">Your Ultimate BCA Companion — a free, student-first platform for MJPRU BCA students.</p>
-    <h2>Our Mission</h2>
-    <p>Every MJPRU BCA student should find papers, syllabus, notes and mock tests in one place — free, no signup, no spam.</p>
-    <h2>What We Offer</h2>
-    <div class="feature-grid">
-      <div class="feature-box"><div class="fb-icon">📄</div><h4>Question Papers</h4><p>Solved &amp; unsolved 2022–2025.</p></div>
-      <div class="feature-box"><div class="fb-icon">📅</div><h4>PYQ</h4><p>Year-wise archive.</p></div>
-      <div class="feature-box"><div class="fb-icon">📚</div><h4>Syllabus</h4><p>2024-25 official structure.</p></div>
-      <div class="feature-box"><div class="fb-icon">📝</div><h4>Notes</h4><p>Handwritten &amp; formula sheets.</p></div>
-      <div class="feature-box"><div class="fb-icon">⭐</div><h4>Important Qs</h4><p>Curated most-asked.</p></div>
-      <div class="feature-box"><div class="fb-icon">🎯</div><h4>Mock Tests</h4><p>Timed MCQ practice.</p></div>
-    </div>
-    <h2>Contributors</h2>
-    <ul><li><strong>Aarav S.</strong> — Sem 1 &amp; 2 papers</li><li><strong>Priya M.</strong> — Java &amp; DBMS notes</li><li><strong>Rahul K.</strong> — Mock tests</li><li><strong>Anjali V.</strong> — Syllabus compilation</li></ul>
-    <p>Want to contribute? <a href="#/contact" data-link>Contact us</a>.</p>
-  </div></div>
+<div class="view" id="view-about"><div class="wrap"><div class="content-page">
+<h1>About MUCodes</h1>
+<p class="lead">Your Ultimate BCA Companion — a free, student-first platform for MJPRU BCA students.</p>
+<h2>Our Mission</h2><p>Every MJPRU BCA student should find papers, syllabus, notes and mock tests in one place — free, no signup, no spam.</p>
+<h2>What We Offer</h2>
+<div class="feature-grid">
+<div class="feature-box"><div class="fb-icon">📄</div><h4>Question Papers</h4><p>Solved &amp; unsolved 2022–2025.</p></div>
+<div class="feature-box"><div class="fb-icon">📅</div><h4>PYQ</h4><p>Year-wise archive.</p></div>
+<div class="feature-box"><div class="fb-icon">📚</div><h4>Syllabus</h4><p>2024-25 official structure.</p></div>
+<div class="feature-box"><div class="fb-icon">📝</div><h4>Notes</h4><p>Handwritten &amp; formula sheets.</p></div>
+<div class="feature-box"><div class="fb-icon">⭐</div><h4>Important Qs</h4><p>Curated most-asked.</p></div>
+<div class="feature-box"><div class="fb-icon">🎯</div><h4>Mock Tests</h4><p>Timed MCQ practice.</p></div>
 </div>
+<h2>Contributors</h2>
+<ul><li><strong>Aarav S.</strong> — Sem 1 &amp; 2 papers</li><li><strong>Priya M.</strong> — Java &amp; DBMS notes</li><li><strong>Rahul K.</strong> — Mock tests</li><li><strong>Anjali V.</strong> — Syllabus compilation</li></ul>
+<p>Want to contribute? <a href="#/contact" data-link>Contact us</a>.</p>
+</div></div></div>
 
-<div class="view" id="view-contact">
-  <div class="wrap"><div class="content-page">
-    <h1>Contact Us</h1>
-    <p class="lead">Have a question, suggestion, or paper to contribute? We'd love to hear from you.</p>
-    <div class="contact-grid">
-      <div class="contact-info">
-        <div class="ci-item"><div class="ci-icon">✉️</div><div><b>Email</b><span>mucodes.official@gmail.com</span></div></div>
-        <div class="ci-item"><div class="ci-icon">🌐</div><div><b>Website</b><span>https://mucodes.in</span></div></div>
-        <div class="ci-item"><div class="ci-icon">💬</div><div><b>WhatsApp</b><span>+91 98765 43210</span></div></div>
-        <div class="ci-item"><div class="ci-icon">📍</div><div><b>Location</b><span>Bareilly, UP</span></div></div>
-      </div>
-      <form class="contact-form" id="contactForm">
-        <div class="field"><label>Your name</label><input type="text" id="cfName" placeholder="Full name" required></div>
-        <div class="field"><label>Email</label><input type="email" id="cfEmail" placeholder="you@example.com" required></div>
-        <div class="field"><label>Topic</label><select id="cfTopic"><option>General feedback</option><option>Report a mistake</option><option>Contribute papers/notes</option><option>Advertise with us</option><option>Technical issue</option></select></div>
-        <div class="field"><label>Message</label><textarea id="cfMsg" placeholder="Write your message…" required></textarea></div>
-        <button type="submit" class="auth-submit">Send message</button>
-      </form>
-    </div>
-  </div></div>
+<div class="view" id="view-contact"><div class="wrap"><div class="content-page">
+<h1>Contact Us</h1>
+<p class="lead">Have a question, suggestion, or paper to contribute? We'd love to hear from you.</p>
+<div class="contact-grid">
+<div class="contact-info">
+<div class="ci-item"><div class="ci-icon">✉️</div><div><b>Email</b><span>mucodes.official@gmail.com</span></div></div>
+<div class="ci-item"><div class="ci-icon">🌐</div><div><b>Website</b><span>https://mucodes.in</span></div></div>
+<div class="ci-item"><div class="ci-icon">💬</div><div><b>WhatsApp</b><span>+91 98765 43210</span></div></div>
+<div class="ci-item"><div class="ci-icon">📍</div><div><b>Location</b><span>Bareilly, UP</span></div></div>
 </div>
+<form class="contact-form" id="contactForm">
+<div class="field"><label>Your name</label><input type="text" id="cfName" placeholder="Full name" required></div>
+<div class="field"><label>Email</label><input type="email" id="cfEmail" placeholder="you@example.com" required></div>
+<div class="field"><label>Topic</label><select id="cfTopic"><option>General feedback</option><option>Report a mistake</option><option>Contribute papers/notes</option><option>Advertise with us</option><option>Technical issue</option></select></div>
+<div class="field"><label>Message</label><textarea id="cfMsg" placeholder="Write your message…" required></textarea></div>
+<button type="submit" class="auth-submit">Send message</button>
+</form>
+</div>
+</div></div></div>
 
-<div class="view" id="view-faq">
-  <div class="wrap"><div class="content-page">
-    <h1>Frequently Asked Questions</h1>
-    <p class="lead">Everything you need to know about using MUCodes.</p>
-    <div class="faq-list" id="faqList"></div>
-  </div></div>
-</div>
+<div class="view" id="view-faq"><div class="wrap"><div class="content-page">
+<h1>Frequently Asked Questions</h1><p class="lead">Everything you need to know about using MUCodes.</p>
+<div class="faq-list" id="faqList"></div>
+</div></div></div>
 
-<div class="view" id="view-privacy">
-  <div class="wrap"><div class="content-page">
-    <h1>Privacy Policy</h1>
-    <p class="lead">Last updated: <span id="privacyDate"></span></p>
-    <h2>1. Information We Collect</h2>
-    <p>MUCodes works without collecting personal data. No analytics trackers, no ad cookies.</p>
-    <p>If you create an account, we store locally in your browser:</p>
-    <ul><li>Name and email</li><li>Hashed password</li><li>Bookmarks, history, ratings, syllabus progress</li></ul>
-    <h2>2. How We Use It</h2><p>Only to personalize your experience. Nothing is shared or sold.</p>
-    <h2>3. Data Storage</h2><p>Everything is local (localStorage). Clearing browser data will permanently delete your account.</p>
-    <h2>4. Contact</h2><p>Questions? <a href="#/contact" data-link>Contact us</a> or email <strong>mucodes.official@gmail.com</strong>.</p>
-  </div></div>
-</div>
+<div class="view" id="view-privacy"><div class="wrap"><div class="content-page">
+<h1>Privacy Policy</h1><p class="lead">Last updated: <span id="privacyDate"></span></p>
+<h2>1. Information We Collect</h2><p>MUCodes works without collecting personal data. No analytics trackers, no ad cookies.</p>
+<p>If you create an account, we store locally in your browser:</p>
+<ul><li>Name and email</li><li>Hashed password</li><li>Bookmarks, history, ratings, syllabus progress</li></ul>
+<h2>2. How We Use It</h2><p>Only to personalize your experience. Nothing is shared or sold.</p>
+<h2>3. Data Storage</h2><p>Everything is local (localStorage). Clearing browser data will permanently delete your account.</p>
+<h2>4. Contact</h2><p>Questions? <a href="#/contact" data-link>Contact us</a> or email <strong>mucodes.official@gmail.com</strong>.</p>
+</div></div></div>
 
-<div class="view" id="view-terms">
-  <div class="wrap"><div class="content-page">
-    <h1>Terms &amp; Conditions</h1>
-    <p class="lead">Last updated: <span id="termsDate"></span></p>
-    <h2>1. Acceptance</h2><p>By using MUCodes, you agree to these terms.</p>
-    <h2>2. Educational Use Only</h2><p>All papers, syllabus and notes are for educational reference only. Commercial use or resale is prohibited.</p>
-    <h2>3. Accuracy</h2><p>Papers are curated from public sources. Verify with official MJPRU sources.</p>
-    <h2>4. Intellectual Property</h2><p>Papers remain property of MJPRU. Site design and curated content belong to MUCodes.</p>
-    <h2>5. Limitation</h2><p>MUCodes is provided "as-is". We are not liable for exam outcomes.</p>
-  </div></div>
-</div>
+<div class="view" id="view-terms"><div class="wrap"><div class="content-page">
+<h1>Terms &amp; Conditions</h1><p class="lead">Last updated: <span id="termsDate"></span></p>
+<h2>1. Acceptance</h2><p>By using MUCodes, you agree to these terms.</p>
+<h2>2. Educational Use Only</h2><p>All papers, syllabus and notes are for educational reference only. Commercial use or resale is prohibited.</p>
+<h2>3. Accuracy</h2><p>Papers are curated from public sources. Verify with official MJPRU sources.</p>
+<h2>4. Intellectual Property</h2><p>Papers remain property of MJPRU. Site design and curated content belong to MUCodes.</p>
+<h2>5. Limitation</h2><p>MUCodes is provided "as-is". We are not liable for exam outcomes.</p>
+</div></div></div>
 
-<div class="view" id="view-disclaimer">
-  <div class="wrap"><div class="content-page">
-    <h1>Disclaimer</h1>
-    <p class="lead">Important information about our content.</p>
-    <h2>Educational Purpose Only</h2><p>All content on MUCodes is for educational and reference purposes only.</p>
-    <h2>No Affiliation</h2><p>MUCodes is <strong>not officially affiliated with MJPRU</strong>. Papers are curated from publicly available sources.</p>
-    <h2>Copyright</h2><p>If you're a copyright owner and believe your content is used improperly, <a href="#/contact" data-link>contact us</a> — we'll remove it promptly.</p>
-    <h2>No Guarantee</h2><p>Use of this site does not guarantee any exam result.</p>
-  </div></div>
-</div>
+<div class="view" id="view-disclaimer"><div class="wrap"><div class="content-page">
+<h1>Disclaimer</h1><p class="lead">Important information about our content.</p>
+<h2>Educational Purpose Only</h2><p>All content on MUCodes is for educational and reference purposes only.</p>
+<h2>No Affiliation</h2><p>MUCodes is <strong>not officially affiliated with MJPRU</strong>. Papers are curated from publicly available sources.</p>
+<h2>Copyright</h2><p>If you're a copyright owner and believe your content is used improperly, <a href="#/contact" data-link>contact us</a> — we'll remove it promptly.</p>
+<h2>No Guarantee</h2><p>Use of this site does not guarantee any exam result.</p>
+</div></div></div>
 
-<div class="view" id="view-404">
-  <div class="wrap"><div class="nf-wrap">
-    <div class="nf-code">404</div>
-    <h2>Page not found</h2>
-    <p>The page you're looking for doesn't exist or has been moved.</p>
-    <div class="nf-actions">
-      <a class="btn btn-primary" href="#/" data-link>🏠 Go home</a>
-      <a class="btn btn-ghost" href="#/papers" data-link>📄 Browse papers</a>
-    </div>
-  </div></div>
+<div class="view" id="view-404"><div class="wrap"><div class="nf-wrap">
+<div class="nf-code">404</div><h2>Page not found</h2>
+<p>The page you're looking for doesn't exist or has been moved.</p>
+<div class="nf-actions">
+<a class="btn btn-primary" href="#/" data-link>🏠 Go home</a>
+<a class="btn btn-ghost" href="#/papers" data-link>📄 Browse papers</a>
 </div>
+</div></div></div>
 
 <div class="float-group">
   <button class="float-btn timer" id="timerToggle" data-tip="Study Timer">⏱️</button>
@@ -1094,8 +1021,8 @@ const raw=[
 ];
 
 const syllabusData={1:[
-{code:"BCA-101N",subject:"Computer Fundamentals and PC Software",credits:4,icon:"💻",pdf:"#",type:"Theory",units:[{title:"Unit 1 — Introduction to Computers",topics:["Generations & classification","Block diagram — CPU, memory, I/O","Number systems: binary, octal, hex","Hardware vs software; types of software"]},{title:"Unit 2 — Operating System Basics",topics:["Functions & types of OS","DOS & Windows basics","File & folder management","GUI vs CLI; Windows utilities"]},{title:"Unit 3 — Word Processing (MS Word)",topics:["Creating & formatting documents","Tables, images, headers & footers","Mail merge, macros, templates","Printing & document protection"]},{title:"Unit 4 — Spreadsheets (MS Excel)",topics:["Workbook & worksheet basics","Formulas: SUM, IF, VLOOKUP","Charts, sorting, filtering, pivot tables","Data validation & conditional formatting"]},{title:"Unit 5 — Presentations & Internet",topics:["MS PowerPoint — slides, transitions","Internet basics, browsers, search engines","Email, cloud storage & collaboration","Computer security basics"]}]},
-{code:"BCA-103N",subject:"Programming with C",credits:4,icon:"⌨️",pdf:"#",type:"Theory",units:[{title:"Unit 1 — Introduction to C",topics:["History & features of C","Structure of a C program","Compilation & execution process","Character set, tokens, identifiers, keywords"]},{title:"Unit 2 — Operators & Control Statements",topics:["Arithmetic, relational, logical, bitwise","Operator precedence & associativity","if, if-else, nested if, switch","while, do-while, for loops"]},{title:"Unit 3 — Functions & Arrays",topics:["Function definition, declaration","Call by value vs call by reference","Recursion & storage classes","Arrays: 1D, 2D; string handling"]},{title:"Unit 4 — Pointers & Structures",topics:["Pointer declaration & arithmetic","Dynamic memory allocation","Structures, unions, typedef, enum","Nested structures; array of structures"]},{title:"Unit 5 — File Handling & Preprocessor",topics:["File operations: fopen, fclose","Text vs binary files","Preprocessor directives","Command line arguments"]}]},
+{code:"BCA-101N",subject:"Computer Fundamentals and PC Software",credits:4,icon:"💻",pdf:"#",type:"Theory",units:[{title:"Unit 1 — Introduction to Computers",topics:["Generations & classification","Block diagram — CPU, memory, I/O","Number systems: binary, octal, hex","Hardware vs software"]},{title:"Unit 2 — Operating System Basics",topics:["Functions & types of OS","DOS & Windows basics","File & folder management","GUI vs CLI; Windows utilities"]},{title:"Unit 3 — Word Processing (MS Word)",topics:["Creating & formatting documents","Tables, images, headers & footers","Mail merge, macros, templates","Printing & document protection"]},{title:"Unit 4 — Spreadsheets (MS Excel)",topics:["Workbook & worksheet basics","Formulas: SUM, IF, VLOOKUP","Charts, sorting, filtering, pivot tables","Data validation & conditional formatting"]},{title:"Unit 5 — Presentations & Internet",topics:["MS PowerPoint — slides, transitions","Internet basics, browsers, search engines","Email, cloud storage & collaboration","Computer security basics"]}]},
+{code:"BCA-103N",subject:"Programming with C",credits:4,icon:"⌨️",pdf:"#",type:"Theory",units:[{title:"Unit 1 — Introduction to C",topics:["History & features of C","Structure of a C program","Compilation & execution process","Character set, tokens, keywords"]},{title:"Unit 2 — Operators & Control Statements",topics:["Arithmetic, relational, logical operators","Operator precedence & associativity","if, if-else, nested if, switch","while, do-while, for loops"]},{title:"Unit 3 — Functions & Arrays",topics:["Function definition, declaration","Call by value vs call by reference","Recursion & storage classes","Arrays: 1D, 2D; string handling"]},{title:"Unit 4 — Pointers & Structures",topics:["Pointer declaration & arithmetic","Dynamic memory allocation","Structures, unions, typedef","Nested structures; array of structures"]},{title:"Unit 5 — File Handling & Preprocessor",topics:["File operations: fopen, fclose","Text vs binary files","Preprocessor directives","Command line arguments"]}]},
 {code:"BCA-105N",subject:"Basic Mathematics",credits:4,icon:"📐",pdf:"#",type:"Theory",units:[{title:"Unit 1 — Sets, Relations & Functions",topics:["Sets — operations, Venn diagrams","Relations — types, equivalence","Functions — types, composition","Cardinality & counting principles"]},{title:"Unit 2 — Matrices & Determinants",topics:["Types of matrices","Determinants & properties","Adjoint & inverse of a matrix","Solution of linear equations"]},{title:"Unit 3 — Differential Calculus",topics:["Limits, continuity & differentiability","Differentiation rules","Maxima & minima; applications","Partial derivatives — basics"]},{title:"Unit 4 — Integral Calculus",topics:["Indefinite integrals & standard forms","Integration by substitution, by parts","Definite integrals & properties","Area under curves; applications"]},{title:"Unit 5 — Probability & Statistics",topics:["Probability — axioms, conditional","Random variables, mean & variance","Binomial, Poisson & normal distributions","Measures of central tendency & dispersion"]}]},
 {code:"BCA-107N",subject:"Communicative English",credits:4,icon:"✍️",pdf:"#",type:"Theory",units:[{title:"Unit 1 — Basics of Communication",topics:["Process, elements & importance","Types: verbal, non-verbal","Barriers to communication","7 C's of effective communication"]},{title:"Unit 2 — Listening & Speaking",topics:["Active listening & techniques","Public speaking — preparation","Group discussions & interviews","Pronunciation, intonation & stress"]},{title:"Unit 3 — Reading & Writing",topics:["Reading comprehension & skimming","Paragraph writing, essay, précis","Letters — formal, informal, business","Report writing & note making"]},{title:"Unit 4 — Grammar & Vocabulary",topics:["Parts of speech, tenses, articles","Sentence structure & common errors","Synonyms, antonyms, idioms","One-word substitutions & word formation"]},{title:"Unit 5 — Professional Communication",topics:["Resume / CV & cover letter writing","Job interviews & workplace etiquette","Presentations & business meetings","Soft skills & personality development"]}]},
 {code:"BCA-109N",subject:"Principle of Management",credits:4,icon:"📊",pdf:"#",type:"Theory",units:[{title:"Unit 1 — Introduction to Management",topics:["Concept, nature, scope & importance","Management as science, art, profession","Levels of management & skills","Evolution of management thought"]},{title:"Unit 2 — Planning & Decision Making",topics:["Planning: meaning, nature, process","Management by Objectives (MBO)","Decision making: process, types","Rationality in decision making"]},{title:"Unit 3 — Organizing",topics:["Organization structure & types","Departmentation — bases & advantages","Span of control, authority & responsibility","Centralization vs decentralization"]},{title:"Unit 4 — Staffing & Directing",topics:["Recruitment, selection & placement","Training & development methods","Motivation — Maslow, Herzberg, McGregor","Leadership styles & theories"]},{title:"Unit 5 — Controlling & Coordination",topics:["Control: process, types, techniques","Coordination — meaning, need & principles","Management of change & conflict","Recent trends in management"]}]},
@@ -1149,46 +1076,46 @@ const notesData=[
 {sem:1,subject:"Principle of Management",icon:"📊",desc:"Complete management notes — Taylor, Fayol, Weber theories with diagrams.",tags:["Theory"],size:"3.0 MB"},
 {sem:2,subject:"Data Structures using C",icon:"🌳",desc:"All data structures with code, diagrams & time complexity analysis.",tags:["Code","Diagrams"],size:"5.8 MB"},
 {sem:2,subject:"Introduction to Database System",icon:"🗄️",desc:"SQL queries, normalization examples & ER diagram cheatsheet.",tags:["SQL","Cheatsheet"],size:"4.7 MB"},
-{sem:2,subject:"Digital Electronics",icon:"🔌",desc:"Logic gates, K-maps, flip-flops & circuits with truth tables.",tags:["Circuits","Truth Tables"],size:"4.1 MB"},
+{sem:2,subject:"Digital Electronics",icon:"🔌",desc:"Logic gates, K-maps, flip-flops & circuits with truth tables.",tags:["Circuits"],size:"4.1 MB"},
 {sem:2,subject:"Business Organization & Management",icon:"💼",desc:"Business org forms, management principles & marketing notes.",tags:["Theory"],size:"3.5 MB"},
-{sem:3,subject:"Object Oriented Programming using JAVA",icon:"☕",desc:"Complete Java notes with AWT, Swing, JDBC & multithreading examples.",tags:["Code","All Units"],size:"5.5 MB"},
+{sem:3,subject:"Object Oriented Programming using JAVA",icon:"☕",desc:"Complete Java notes with AWT, Swing, JDBC & multithreading examples.",tags:["Code"],size:"5.5 MB"},
 {sem:3,subject:"Operating System",icon:"🖥️",desc:"Theory notes + scheduling, deadlock & memory algorithms.",tags:["Theory","Algorithms"],size:"4.8 MB"},
 {sem:3,subject:"Computer Organization and Architecture",icon:"🔧",desc:"CPU, memory, pipelining & I/O organization with diagrams.",tags:["Diagrams"],size:"4.4 MB"},
 {sem:3,subject:"Numerical Analysis and Statistical Techniques",icon:"📈",desc:"All numerical methods + statistics formulas with solved examples.",tags:["Formula","Solved"],size:"5.0 MB"},
 {sem:4,subject:"Programming in Python",icon:"🐍",desc:"Beginner-friendly Python with 50+ programs & library examples.",tags:["Programs"],size:"5.2 MB"},
-{sem:4,subject:"Unix and Shell Programming",icon:"🐧",desc:"Unix commands, shell scripts, vi editor & process management.",tags:["Commands","Scripts"],size:"4.3 MB"},
-{sem:4,subject:"Computer Networks",icon:"🌐",desc:"OSI layers, protocols, subnetting & routing with diagrams.",tags:["Diagrams","Examples"],size:"4.6 MB"},
+{sem:4,subject:"Unix and Shell Programming",icon:"🐧",desc:"Unix commands, shell scripts, vi editor & process management.",tags:["Commands"],size:"4.3 MB"},
+{sem:4,subject:"Computer Networks",icon:"🌐",desc:"OSI layers, protocols, subnetting & routing with diagrams.",tags:["Diagrams"],size:"4.6 MB"},
 {sem:4,subject:"Accounting and Financial Management",icon:"💰",desc:"Accounting basics, final accounts, ratios & funds flow.",tags:["Solved"],size:"3.7 MB"},
-{sem:5,subject:"Artificial Intelligence",icon:"🤖",desc:"Search algorithms, knowledge representation & expert systems.",tags:["Theory","Algorithms"],size:"5.3 MB"},
-{sem:5,subject:"Web Technologies",icon:"🌍",desc:"HTML, CSS, JavaScript, PHP & frameworks with practical examples.",tags:["Code","Examples"],size:"5.7 MB"},
-{sem:5,subject:"Computer Graphics and Animation",icon:"🎨",desc:"Drawing algorithms, transformations, clipping & animation notes.",tags:["Diagrams","Algorithms"],size:"5.0 MB"},
+{sem:5,subject:"Artificial Intelligence",icon:"🤖",desc:"Search algorithms, knowledge representation & expert systems.",tags:["Theory"],size:"5.3 MB"},
+{sem:5,subject:"Web Technologies",icon:"🌍",desc:"HTML, CSS, JavaScript, PHP & frameworks with practical examples.",tags:["Code"],size:"5.7 MB"},
+{sem:5,subject:"Computer Graphics and Animation",icon:"🎨",desc:"Drawing algorithms, transformations, clipping & animation notes.",tags:["Diagrams"],size:"5.0 MB"},
 {sem:6,subject:"Introduction to Data Science",icon:"📊",desc:"Data science lifecycle, preprocessing, EDA & ML basics.",tags:["Math","Code"],size:"5.4 MB"},
 {sem:6,subject:"Cloud Computing",icon:"☁️",desc:"IaaS/PaaS/SaaS, AWS, Azure & cloud security notes.",tags:["Theory"],size:"4.5 MB"},
-{sem:6,subject:"Internet of Things",icon:"📡",desc:"IoT architecture, protocols, sensors & applications.",tags:["Diagrams","Theory"],size:"4.9 MB"}
+{sem:6,subject:"Internet of Things",icon:"📡",desc:"IoT architecture, protocols, sensors & applications.",tags:["Diagrams"],size:"4.9 MB"}
 ];
 
 const questionsData=[
-{sem:1,year:2025,q:"Explain the evolution of management thought with contributions of Taylor, Fayol and Weber.",ans:"Taylor — Scientific Management (time & motion study, standardization). Fayol — 14 principles of management, 5 functions. Weber — Bureaucratic theory (hierarchy, rules, impersonality)."},
-{sem:1,year:2024,q:"Difference between call by value and call by reference in C. Give examples with code.",ans:"Call by value — copy of argument passed, changes don't affect original. Call by reference — address passed (using pointers), changes affect original. Swap program example."},
-{sem:1,year:2025,q:"Find inverse of matrix A=[[2,1],[5,3]] using adjoint method.",ans:"det(A)=2·3−1·5=1. adj(A)=[[3,−1],[−5,2]]. A⁻¹=(1/1)·adj(A)=[[3,−1],[−5,2]]."},
-{sem:1,year:2025,q:"Explain number systems in computers — binary, octal, hexadecimal with conversion examples.",ans:"Binary (base 2), Octal (base 8), Decimal (base 10), Hex (base 16). Conversions: e.g. (45)₁₀ = (101101)₂ = (55)₈ = (2D)₁₆."},
-{sem:2,year:2025,q:"Explain different types of binary tree traversals with examples (Inorder, Preorder, Postorder).",ans:"Inorder (Left-Root-Right), Preorder (Root-Left-Right), Postorder (Left-Right-Root). Example with tree A-B-C gives: Inorder B,A,C; Preorder A,B,C; Postorder B,C,A."},
-{sem:2,year:2025,q:"Explain ACID properties of a transaction with examples.",ans:"Atomicity — all or nothing. Consistency — DB in valid state. Isolation — concurrent transactions don't interfere. Durability — committed changes persist even after crash."},
-{sem:2,year:2024,q:"Design a full adder using two half adders. Draw truth table and circuit.",ans:"Full adder = 2 half adders + OR gate. Truth table for A,B,Cin → Sum, Cout. Sum = A⊕B⊕Cin, Cout = AB + Cin(A⊕B)."},
-{sem:2,year:2025,q:"Explain K-map simplification with example of 4-variable function.",ans:"Karnaugh map groups adjacent 1s in powers of 2 (1,2,4,8). Group largest possible. Example: F(A,B,C,D)=Σ(0,1,2,3,8,9,10,11) → F=A'B'+AB'."},
-{sem:3,year:2025,q:"Explain OOP concepts — encapsulation, inheritance, polymorphism with Java examples.",ans:"Encapsulation — data hiding (private + getters/setters). Inheritance — extends keyword, IS-A relationship. Polymorphism — method overloading (compile-time) & overriding (runtime)."},
-{sem:3,year:2025,q:"Differentiate between process and thread. Explain thread lifecycle in detail.",ans:"Process — independent, own memory space. Thread — lightweight, shares memory. Lifecycle: New → Runnable → Running → Waiting/Blocked → Terminated. States explained with diagram."},
-{sem:3,year:2024,q:"Explain Newton-Raphson method for finding roots with example. Compare with Bisection method.",ans:"Newton-Raphson: x_{n+1}=x_n - f(x_n)/f'(x_n). Fast quadratic convergence. Bisection: slower linear convergence but guaranteed. Example f(x)=x²-4 → root=2."},
-{sem:3,year:2025,q:"Explain demand paging and page replacement algorithms (FIFO, LRU, Optimal) with examples.",ans:"Demand paging — pages loaded only when needed. FIFO — replaces oldest page. LRU — replaces least recently used. Optimal — replaces page used farthest in future."},
-{sem:4,year:2025,q:"Explain Python data structures — list, tuple, set, dict with examples and use cases.",ans:"List — ordered, mutable [1,2,3]. Tuple — ordered, immutable (1,2,3). Set — unordered unique {1,2,3}. Dict — key-value pairs {'a':1}. Use cases for each."},
-{sem:4,year:2025,q:"Explain OSI model layers with functions and protocols. Compare with TCP/IP model.",ans:"OSI 7 layers: Physical, Data Link, Network, Transport, Session, Presentation, Application. TCP/IP: 4 layers. OSI is reference model, TCP/IP is implementation."},
-{sem:4,year:2024,q:"Explain Unix file permissions and chmod command with examples.",ans:"Permissions: rwx for owner, group, others. Numeric: r=4, w=2, x=1. chmod 755 file → rwxr-xr-x. Symbolic: chmod u+x file."},
-{sem:5,year:2025,q:"Explain A* search algorithm with example. Compare with BFS and DFS.",ans:"A* uses f(n)=g(n)+h(n). g=cost from start, h=heuristic to goal. Optimal if h admissible. BFS complete but memory-heavy. DFS memory-efficient but not optimal."},
-{sem:5,year:2025,q:"Explain MVC architecture with example in Web Technologies.",ans:"Model — data & business logic. View — presentation (HTML/CSS). Controller — handles requests, updates model, selects view. Example: User login flow."},
-{sem:5,year:2024,q:"Explain DDA and Bresenham line drawing algorithms with advantages.",ans:"DDA — uses floating point, simple but slower. Bresenham — integer arithmetic, faster & more accurate, only addition/subtraction. Bresenham preferred for hardware."},
-{sem:6,year:2025,q:"Explain supervised vs unsupervised learning with real-world examples.",ans:"Supervised — labeled data (spam detection, price prediction). Unsupervised — unlabeled data, find patterns (customer segmentation). Supervised: regression & classification. Unsupervised: clustering."},
-{sem:6,year:2025,q:"Compare IaaS, PaaS, and SaaS with real-world examples and use cases.",ans:"IaaS — raw infrastructure (AWS EC2, Azure VMs). PaaS — platform to deploy apps (Heroku). SaaS — ready-to-use software (Gmail, Salesforce). Responsibility decreases from IaaS to SaaS."},
-{sem:6,year:2024,q:"Explain IoT architecture (5-layer) with sensors, actuators and applications.",ans:"5 layers: Perception (sensors), Network (connectivity), Middleware (data processing), Application (services), Business (management). Applications: smart home, city, health."}
+{sem:1,year:2025,q:"Explain the evolution of management thought with contributions of Taylor, Fayol and Weber.",ans:"Taylor — Scientific Management (time & motion study, standardization). Fayol — 14 principles of management, 5 functions. Weber — Bureaucratic theory."},
+{sem:1,year:2024,q:"Difference between call by value and call by reference in C. Give examples with code.",ans:"Call by value — copy of argument passed, changes don't affect original. Call by reference — address passed, changes affect original. Swap program example."},
+{sem:1,year:2025,q:"Find inverse of matrix A=[[2,1],[5,3]] using adjoint method.",ans:"det(A)=1. adj(A)=[[3,−1],[−5,2]]. A⁻¹=[[3,−1],[−5,2]]."},
+{sem:1,year:2025,q:"Explain number systems in computers — binary, octal, hexadecimal with conversions.",ans:"Binary (base 2), Octal (base 8), Decimal (base 10), Hex (base 16). e.g. (45)₁₀ = (101101)₂ = (55)₈ = (2D)₁₆."},
+{sem:2,year:2025,q:"Explain different types of binary tree traversals with examples.",ans:"Inorder (Left-Root-Right), Preorder (Root-Left-Right), Postorder (Left-Right-Root)."},
+{sem:2,year:2025,q:"Explain ACID properties of a transaction with examples.",ans:"Atomicity — all or nothing. Consistency — DB in valid state. Isolation — concurrent transactions don't interfere. Durability — committed changes persist."},
+{sem:2,year:2024,q:"Design a full adder using two half adders. Draw truth table and circuit.",ans:"Full adder = 2 half adders + OR gate. Sum = A⊕B⊕Cin, Cout = AB + Cin(A⊕B)."},
+{sem:2,year:2025,q:"Explain K-map simplification with example of 4-variable function.",ans:"Karnaugh map groups adjacent 1s in powers of 2. Group largest possible. F(A,B,C,D)=Σ(0,1,2,3,8,9,10,11) → F=A'B'+AB'."},
+{sem:3,year:2025,q:"Explain OOP concepts — encapsulation, inheritance, polymorphism with Java examples.",ans:"Encapsulation — data hiding. Inheritance — extends keyword. Polymorphism — overloading (compile-time) & overriding (runtime)."},
+{sem:3,year:2025,q:"Differentiate between process and thread. Explain thread lifecycle in detail.",ans:"Process — independent, own memory. Thread — lightweight, shares memory. Lifecycle: New → Runnable → Running → Waiting → Terminated."},
+{sem:3,year:2024,q:"Explain Newton-Raphson method for finding roots with example. Compare with Bisection.",ans:"Newton-Raphson: x_{n+1}=x_n - f(x_n)/f'(x_n). Fast quadratic convergence. Bisection slower but guaranteed. Example f(x)=x²-4 → root=2."},
+{sem:3,year:2025,q:"Explain demand paging and page replacement algorithms (FIFO, LRU, Optimal).",ans:"Demand paging — pages loaded only when needed. FIFO — oldest page. LRU — least recently used. Optimal — used farthest in future."},
+{sem:4,year:2025,q:"Explain Python data structures — list, tuple, set, dict with examples.",ans:"List — ordered, mutable [1,2,3]. Tuple — ordered, immutable (1,2,3). Set — unordered unique {1,2,3}. Dict — key-value {'a':1}."},
+{sem:4,year:2025,q:"Explain OSI model layers with functions and protocols. Compare with TCP/IP.",ans:"OSI 7 layers: Physical, Data Link, Network, Transport, Session, Presentation, Application. TCP/IP: 4 layers."},
+{sem:4,year:2024,q:"Explain Unix file permissions and chmod command with examples.",ans:"Permissions: rwx for owner, group, others. Numeric: r=4, w=2, x=1. chmod 755 file → rwxr-xr-x."},
+{sem:5,year:2025,q:"Explain A* search algorithm with example. Compare with BFS and DFS.",ans:"A* uses f(n)=g(n)+h(n). Optimal if h admissible. BFS complete but memory-heavy. DFS memory-efficient but not optimal."},
+{sem:5,year:2025,q:"Explain MVC architecture with example in Web Technologies.",ans:"Model — data & business logic. View — presentation. Controller — handles requests, updates model, selects view."},
+{sem:5,year:2024,q:"Explain DDA and Bresenham line drawing algorithms with advantages.",ans:"DDA — floating point, slower. Bresenham — integer arithmetic, faster. Bresenham preferred for hardware."},
+{sem:6,year:2025,q:"Explain supervised vs unsupervised learning with real-world examples.",ans:"Supervised — labeled data (spam detection). Unsupervised — unlabeled, finds patterns (customer segmentation)."},
+{sem:6,year:2025,q:"Compare IaaS, PaaS, and SaaS with real-world examples and use cases.",ans:"IaaS — EC2, Azure VMs. PaaS — Heroku, App Engine. SaaS — Gmail, Salesforce."},
+{sem:6,year:2024,q:"Explain IoT architecture (5-layer) with sensors, actuators and applications.",ans:"5 layers: Perception, Network, Middleware, Application, Business. Applications: smart home, city, health."}
 ];
 
 const testsData=[
@@ -1233,7 +1160,6 @@ const noticesData=[
 
 const contribNames=["Aarav S.","Priya M.","Rahul K.","Anjali V.","Vikram T.","Neha G."];
 
-// ========== HELPERS ==========
 function hash(s){let h=2166136261;for(let i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,16777619)}return Math.abs(h)}
 function slug(s){return s.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"")}
 function unSlug(s){return s.replace(/-/g," ").replace(/\b\w/g,c=>c.toUpperCase())}
@@ -1567,14 +1493,92 @@ const reportOverlay=$("#reportOverlay");
 function openReport(p){$("#reportModal").innerHTML=`<div class="modal-head"><button class="modal-close" id="reportClose">✕</button><h2>Report this paper</h2><p class="sub">${esc(p.subject)} · ${p.year}</p></div><div class="modal-body"><div class="field"><label>What's wrong?</label><select id="reportReason"><option>PDF not working</option><option>Wrong paper</option><option>Missing paper</option><option>Duplicate</option><option>Copyright issue</option><option>Other</option></select></div><div class="field"><label>Details (optional)</label><textarea id="reportDetails" placeholder="Tell us more…" style="min-height:80px"></textarea></div><button class="auth-submit" id="reportSubmit">Submit Report</button></div>`;reportOverlay.classList.add("open");document.body.style.overflow="hidden";$("#reportClose").addEventListener("click",()=>{reportOverlay.classList.remove("open");document.body.style.overflow=""});$("#reportSubmit").addEventListener("click",()=>{const reason=$("#reportReason").value,details=$("#reportDetails").value;const reports=JSON.parse(localStorage.getItem("mucodes-reports")||"[]");reports.push({paperId:p.id,reason,details,ts:Date.now()});localStorage.setItem("mucodes-reports",JSON.stringify(reports));showToast("Report submitted","✓");reportOverlay.classList.remove("open");document.body.style.overflow=""})}
 reportOverlay.addEventListener("click",e=>{if(e.target===reportOverlay){reportOverlay.classList.remove("open");document.body.style.overflow=""}});
 
-function setupSearch(){
-  const inp=$("#searchHome"),clear=$("#clearHome"),sugg=$("#searchSugg");if(!inp)return;let timer;
-  inp.addEventListener("input",e=>{const q=e.target.value.trim();clear.classList.toggle("show",q.length>0);clearTimeout(timer);timer=setTimeout(()=>{state.q=q;if(state.route!=="papers")navTo("papers");else renderPapers();if(q.length>=1)showSuggestions(q);else sugg.classList.remove("open")},200)});
-  inp.addEventListener("focus",()=>{if(inp.value.trim().length>=1)showSuggestions(inp.value.trim())});
-  document.addEventListener("click",e=>{if(!e.target.closest(".search-box"))sugg.classList.remove("open")});
-  clear.addEventListener("click",()=>{inp.value="";state.q="";clear.classList.remove("show");sugg.classList.remove("open");renderPapers();inp.focus()});
+// ═══════════════════════════════════════════════════════════════
+// SEARCH — UPDATED: SUGGESTIONS FROM SYLLABUS
+// ═══════════════════════════════════════════════════════════════
+function getAllSyllabusSubjects(){
+  const list=[];
+  [1,2,3,4,5,6].forEach(sem=>{
+    (syllabusData[sem]||[]).forEach(s=>{
+      list.push({sem:sem,subject:s.subject,code:s.code,type:s.type||"Theory"});
+    });
+  });
+  return list;
 }
-function showSuggestions(q){const sugg=$("#searchSugg");const lower=q.toLowerCase();const all=getAllPapers();const subjects=new Set(all.map(p=>p.subject));const matchedSubj=[...subjects].filter(s=>s.toLowerCase().includes(lower)).slice(0,5);const years=["2025","2024","2023","2022"].filter(y=>y.includes(lower));if(!matchedSubj.length&&!years.length){sugg.innerHTML=`<div class="sugg-empty">No matches for "${esc(q)}"</div>`;sugg.classList.add("open");return}let html="";if(matchedSubj.length){html+=`<div class="sugg-label">Subjects</div>`;html+=matchedSubj.map(s=>{const cnt=all.filter(p=>p.subject===s).length;return`<div class="sugg-item" data-sugg-subj="${esc(s)}"><div class="sugg-icon" style="background:${colorFor(s)};color:#fff">${esc(s.charAt(0))}</div><div class="sugg-text"><div class="sugg-title">${esc(s)}</div><div class="sugg-meta">${cnt} papers</div></div></div>`}).join("")}if(years.length){html+=`<div class="sugg-label">Years</div>`;html+=years.map(y=>`<div class="sugg-item" data-sugg-year="${y}"><div class="sugg-icon">📅</div><div class="sugg-text"><div class="sugg-title">Papers from ${y}</div><div class="sugg-meta">${all.filter(p=>p.year===Number(y)).length} papers</div></div></div>`).join("")}sugg.innerHTML=html;sugg.classList.add("open");sugg.querySelectorAll("[data-sugg-subj]").forEach(el=>el.addEventListener("click",()=>{window.location.hash="#/subject/"+slug(el.dataset.suggSubj);sugg.classList.remove("open");$("#searchHome").value=""}));sugg.querySelectorAll("[data-sugg-year]").forEach(el=>el.addEventListener("click",()=>{state.year=el.dataset.suggYear;state.q="";$("#searchHome").value="";$$("#yearChips .chip").forEach(c=>c.classList.toggle("active",c.dataset.year===el.dataset.suggYear));navTo("papers");sugg.classList.remove("open")}))}
+
+function setupSearch(){
+  const inp=$("#searchHome"),clear=$("#clearHome"),sugg=$("#searchSugg");
+  if(!inp)return;
+  let timer;
+  inp.addEventListener("input",e=>{
+    const q=e.target.value.trim();
+    clear.classList.toggle("show",q.length>0);
+    clearTimeout(timer);
+    timer=setTimeout(()=>{
+      if(q.length>=1)showSuggestions(q);
+      else sugg.classList.remove("open");
+    },150);
+  });
+  inp.addEventListener("focus",()=>{
+    if(inp.value.trim().length>=1)showSuggestions(inp.value.trim());
+  });
+  document.addEventListener("click",e=>{
+    if(!e.target.closest(".search-box"))sugg.classList.remove("open");
+  });
+  clear.addEventListener("click",()=>{
+    inp.value="";
+    clear.classList.remove("show");
+    sugg.classList.remove("open");
+    inp.focus();
+  });
+  inp.addEventListener("keydown",e=>{
+    if(e.key==="Escape"){sugg.classList.remove("open");inp.blur();}
+  });
+}
+
+function showSuggestions(q){
+  const sugg=$("#searchSugg");
+  const lower=q.toLowerCase();
+  const allSubjects=getAllSyllabusSubjects();
+  const allPapers=getAllPapers();
+
+  const matched=allSubjects.filter(s=>{
+    return s.subject.toLowerCase().includes(lower) ||
+           s.code.toLowerCase().includes(lower) ||
+           s.type.toLowerCase().includes(lower);
+  }).slice(0,8);
+
+  if(!matched.length){
+    sugg.innerHTML=`<div class="sugg-empty">No subject matches "<b>${esc(q)}</b>"<br><span style="font-size:.72rem;color:var(--muted)">Try typing subject name like C, Java, Maths…</span></div>`;
+    sugg.classList.add("open");
+    return;
+  }
+
+  let html=`<div class="sugg-label">📚 Subjects (${matched.length})</div>`;
+  html+=matched.map(s=>{
+    const paperCount=allPapers.filter(p=>p.subject===s.subject).length;
+    return `<div class="sugg-item" data-sugg-subj="${esc(s.subject)}">
+      <div class="sugg-icon" style="background:${colorFor(s.subject)};color:#fff;font-weight:800">${esc(s.subject.charAt(0))}</div>
+      <div class="sugg-text">
+        <div class="sugg-title">${esc(s.subject)}</div>
+        <div class="sugg-meta">Sem ${s.sem} · ${s.code} · ${s.type} · ${paperCount} paper${paperCount!==1?"s":""}</div>
+      </div>
+      <span style="color:var(--muted);font-size:.8rem;margin-left:auto">→</span>
+    </div>`;
+  }).join("");
+
+  sugg.innerHTML=html;
+  sugg.classList.add("open");
+
+  sugg.querySelectorAll("[data-sugg-subj]").forEach(el=>{
+    el.addEventListener("click",()=>{
+      const subj=el.dataset.suggSubj;
+      $("#searchHome").value="";
+      sugg.classList.remove("open");
+      window.location.hash="#/subject/"+slug(subj);
+    });
+  });
+}
 
 document.addEventListener("click",e=>{
   const bm=e.target.closest("[data-bm]");if(bm){e.stopPropagation();const s=toggleBookmark(bm.dataset.bm);if(s!==false){bm.classList.toggle("saved",s);bm.textContent=s?"♥":"♡";if(state.bookmarksOnly)renderView()}return}
